@@ -1,0 +1,139 @@
+<svg width="370" height="350" viewBox="0 0 370 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M175 124.5L180 106.5L185 107L180.5 131.5L185 150.5L175 132.5V124.5Z" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+<path d="M175 132.5L180.5 131.5" stroke="black"/>
+<path d="M175 124.5L185 107" stroke="black"/>
+<path d="M175 124.5L180.5 131.5" stroke="black"/>
+<path d="M195.5 124.5L190.5 106.5L185.5 107L190 131.5L185.5 150.5L195.5 132.5V124.5Z" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+<path d="M195.5 132.5L190 131.5" stroke="black"/>
+<path d="M195.5 124.5L185.5 107" stroke="black"/>
+<path d="M195.5 124.5L190 131.5" stroke="black"/>
+<path d="M180 106.5L173.5 91L168.5 81V71L177.5 65.5H184.5" stroke="black" stroke-width="2"/>
+<path d="M185 107L168.5 81" stroke="black"/>
+<path d="M190.5 106.5L197 91L202 81V71L193 65.5H186" stroke="black" stroke-width="2"/>
+<path d="M185.5 107L202 81" stroke="black"/>
+<path d="M184 65.5H186.5" stroke="black" stroke-width="2"/>
+<path d="M160.5 53L170 56.3306L176.446 66L178.444 65.5L172 49.5V41L154 33.5L154.5 41L160.5 53Z" stroke="black" stroke-width="2"/>
+<path d="M154.5 41L171.5 49.5" stroke="black"/>
+<path d="M154 33.5L172 50" stroke="black"/>
+<path d="M154 33.5L170 56" stroke="black"/>
+<path d="M172 49.5L173.5 61" stroke="black"/>
+<path d="M161.5 44.5L160.5 53" stroke="black"/>
+<path d="M154.5 41H172" stroke="black"/>
+<path d="M209 53L199.5 56.3306L193 65.5H191.056L197.5 49.5V41L213.5 36.5L215 41L209 53Z" stroke="black" stroke-width="2"/>
+<path d="M215 41L198 49" stroke="black"/>
+<path d="M213.5 36.5L197.5 49.5" stroke="black"/>
+<path d="M213.5 36.5L196 61" stroke="black"/>
+<path d="M196.496 61.0647C196.46 61.3385 196.209 61.5315 195.935 61.4958C195.662 61.4601 195.468 61.2092 195.504 60.9353L196.496 61.0647ZM197.996 49.5647L196.496 61.0647L195.504 60.9353L197.004 49.4353L197.996 49.5647Z" fill="black"/>
+<path d="M208 44.5L209 53" stroke="black"/>
+<path d="M215 41H197.5" stroke="black"/>
+<path d="M168.5 81L202 71" stroke="black"/>
+<path d="M168.5 71L187 75.5" stroke="black"/>
+<path d="M202 81L178.5 78" stroke="black"/>
+<path d="M193 65.5L187 75.5" stroke="black"/>
+<path d="M178.5 78L191.5 96.5" stroke="black"/>
+<path d="M168.5 81L192 97" stroke="black"/>
+<path d="M191 65.5L186 75.5" stroke="black"/>
+<path d="M191.5 96.5L202 71" stroke="black"/>
+<path d="M171 69L114.5 19.5L65 1H31L2 12.5L9.5 37L31 47.5L42 93L70 114L122 109.5L156.5 92.5L168.5 81" stroke="black" stroke-width="2"/>
+<path d="M98 111.5L65 146.5V159L75.5 151.5L73.5 159L115 191.5L131.5 195.5L140 211.5L146.5 232L144 254.5L131.5 280.5L119 295L110 306L104.5 321.5L106.5 338.5L115 347V335.5L119 319.5L125.5 300.5L137.5 286.5L149.5 257L161 234.5L169 182L162.5 164.5L167 134L180 106.5" stroke="black" stroke-width="2"/>
+<path d="M65 146.5L78.5 149.5" stroke="black"/>
+<path d="M75.5 151L131.5 122.5L156.5 92.5" stroke="black"/>
+<path d="M115 191.5L131.5 122.5V195.5" stroke="black"/>
+<path d="M48.5 19L114.5 19.5" stroke="black"/>
+<path d="M171.5 103L167 134" stroke="black"/>
+<path d="M168.5 81L171.5 103" stroke="black"/>
+<path d="M131.5 123L171.5 103" stroke="black"/>
+<path d="M87.5 49.5L70 114" stroke="black"/>
+<path d="M31 47.5L87.5 49.5" stroke="black"/>
+<path d="M42 93L87.5 49.5" stroke="black"/>
+<path d="M114.5 19.5L87.5 49.5" stroke="black"/>
+<path d="M31 47.5L48.5 19" stroke="black"/>
+<path d="M87.5 49.5L48.5 19" stroke="black"/>
+<path d="M31 1L9.5 37" stroke="black"/>
+<path d="M65 1L9.5 37" stroke="black"/>
+<path d="M2 12.5L48.5 19" stroke="black"/>
+<path d="M65 1L156.5 92.5" stroke="black"/>
+<path d="M100 36L122 109.5" stroke="black"/>
+<path d="M100 36L171.5 69" stroke="black"/>
+<path d="M131.5 195.5L161 234.5" stroke="black"/>
+<path d="M140 211.5L161 234.5" stroke="black"/>
+<path d="M162.5 164.5L131.5 195.5" stroke="black"/>
+<path d="M169 182L146.5 232" stroke="black"/>
+<path d="M110 306L115 335.5" stroke="black"/>
+<path d="M106.5 338.5L115 335.5" stroke="black"/>
+<path d="M104.5 321.5L115 335.5" stroke="black"/>
+<path d="M110 306L125.5 300.5" stroke="black"/>
+<path d="M131.5 280.5L125 300.5" stroke="black"/>
+<path d="M119 319.5L110 306" stroke="black"/>
+<path d="M144 254.5L137.5 286.5" stroke="black"/>
+<path d="M146.5 232L149.5 257" stroke="black"/>
+<path d="M75.5 135.5L95.5 141" stroke="black"/>
+<path d="M95 141L91 119M94.5 115.5L121.5 127.5" stroke="black"/>
+<path d="M91 119L121 127.5" stroke="black"/>
+<path d="M65 146.5L94.5 141" stroke="black"/>
+<path d="M95 141L88 170.5" stroke="black"/>
+<path d="M131.5 123L88 170" stroke="black"/>
+<path d="M88 170L123 157.5" stroke="black"/>
+<path d="M107.5 149.5L123 157.5" stroke="black"/>
+<path d="M42 93L109.5 68.5" stroke="black"/>
+<path d="M70 113.5L109.5 68.5" stroke="black"/>
+<path d="M31 47.5L79.5 79.5" stroke="black"/>
+<path d="M79.5 79.5L156 92.5" stroke="black"/>
+<path d="M70 114L114.5 85.5L168.5 81" stroke="black"/>
+<path d="M65 1L87 49.5L171 69" stroke="black"/>
+<path d="M122 109.5L131.5 123L162.5 164.5" stroke="black"/>
+<path d="M171.5 103.5L145 141L140.5 212.5" stroke="black"/>
+<path d="M169 182.5L142.5 184.5L122.5 157.5" stroke="black"/>
+<path d="M123 158L145 141L167 133" stroke="black"/>
+<path d="M199 69L255.5 19.5L305 1H339L368 12.5L360.5 37L339 47.5L328 93L300 114L248 109.5L213.5 92.5L201.5 81" stroke="black" stroke-width="2"/>
+<path d="M272 111.5L305 146.5V159L294.5 151.5L296.5 159L255 191.5L238.5 195.5L230 211.5L223.5 232L226 254.5L238.5 280.5L251 295L260 306L265.5 321.5L263.5 338.5L255 347V335.5L251 319.5L244.5 300.5L232.5 286.5L220.5 257L209 234.5L201 182L207.5 164.5L203 134L190.5 106.5" stroke="black" stroke-width="2"/>
+<path d="M305 146.5L291.5 149.5" stroke="black"/>
+<path d="M294.5 151L238.5 122.5L213.5 92.5" stroke="black"/>
+<path d="M255 191.5L238.5 122.5V195.5" stroke="black"/>
+<path d="M321.5 19L255.5 19.5" stroke="black"/>
+<path d="M198.5 103L203 134" stroke="black"/>
+<path d="M201.5 81L198.5 103" stroke="black"/>
+<path d="M238.5 123L198.5 103" stroke="black"/>
+<path d="M282.5 49.5L300 114" stroke="black"/>
+<path d="M339 47.5L282.5 49.5" stroke="black"/>
+<path d="M328 93L282.5 49.5" stroke="black"/>
+<path d="M255.5 19.5L282.5 49.5" stroke="black"/>
+<path d="M339 47.5L321.5 19" stroke="black"/>
+<path d="M282.5 49.5L321.5 19" stroke="black"/>
+<path d="M339 1L360.5 37" stroke="black"/>
+<path d="M305 1L360.5 37" stroke="black"/>
+<path d="M368 12.5L321.5 19" stroke="black"/>
+<path d="M305 1L213.5 92.5" stroke="black"/>
+<path d="M270 36L248 109.5" stroke="black"/>
+<path d="M270 36L198.5 69" stroke="black"/>
+<path d="M238.5 195.5L209 234.5" stroke="black"/>
+<path d="M230 211.5L209 234.5" stroke="black"/>
+<path d="M207.5 164.5L238.5 195.5" stroke="black"/>
+<path d="M201 182L223.5 232" stroke="black"/>
+<path d="M260 306L255 335.5" stroke="black"/>
+<path d="M263.5 338.5L255 335.5" stroke="black"/>
+<path d="M265.5 321.5L255 335.5" stroke="black"/>
+<path d="M260 306L244.5 300.5" stroke="black"/>
+<path d="M238.5 280.5L245 300.5" stroke="black"/>
+<path d="M251 319.5L260 306" stroke="black"/>
+<path d="M226 254.5L232.5 286.5" stroke="black"/>
+<path d="M223.5 232L220.5 257" stroke="black"/>
+<path d="M294.5 135.5L274.5 141" stroke="black"/>
+<path d="M275 141L279 119M275.5 115.5L248.5 127.5" stroke="black"/>
+<path d="M279 119L249 127.5" stroke="black"/>
+<path d="M305 146.5L275.5 141" stroke="black"/>
+<path d="M275 141L282 170.5" stroke="black"/>
+<path d="M238.5 123L282 170" stroke="black"/>
+<path d="M282 170L247 157.5" stroke="black"/>
+<path d="M262.5 149.5L247 157.5" stroke="black"/>
+<path d="M328 93L260.5 68.5" stroke="black"/>
+<path d="M300 113.5L260.5 68.5" stroke="black"/>
+<path d="M339 47.5L290.5 79.5" stroke="black"/>
+<path d="M290.5 79.5L214 92.5" stroke="black"/>
+<path d="M300 114L255.5 85.5L201.5 81" stroke="black"/>
+<path d="M305 1L283 49.5L199 69" stroke="black"/>
+<path d="M248 109.5L238.5 123L207.5 164.5" stroke="black"/>
+<path d="M198.5 103.5L225 141L229.5 212.5" stroke="black"/>
+<path d="M201 182.5L227.5 184.5L247.5 157.5" stroke="black"/>
+<path d="M247 158L225 141L203 133" stroke="black"/>
+</svg>
