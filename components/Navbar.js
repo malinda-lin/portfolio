@@ -1,27 +1,18 @@
-import Link from 'next/link';
+import {useState} from 'react';
+import NavbarMenu from './NavbarMenu';
 
 const Navbar = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
 
   return (
     <div>
+      <NavbarMenu open={showMenu} setOpen={setShowMenu} />
       <div id="container">
-        <div className="item">
-          <Link href="/">
-            <button type="button">Home</button>
-          </Link>
-        </div>
-
-        <div className="item">
-          <Link href="/projects">
-            <button type="button">Projects</button>
-          </Link>
-        </div>
-
-        <div className="item">
-          <Link href="/about">
-            <button type="button">About</button>
-          </Link>
-        </div>
+        <button id="menu-button" type="button" onClick={toggleMenu} />
       </div>
       <style jsx>
         {`
@@ -29,13 +20,20 @@ const Navbar = () => {
             display: flex;
             justify-content: flex-end;
           }
-          .item {
-            padding: 1em;
-          }
-          button {
-            border: none;
+          #menu-button {
+            z-index: 10;
+            margin: 2em;
+            height: 0.7em;
+            width: 2em;
+            border-top: 0.15em solid black;
+            border-bottom: 0.15em solid black;
+            border-left: 0 solid transparent;
+            border-right: 0 solid transparent;
+            border-radius: 10%;
             background-color: transparent;
-            font-size: 1em;
+          }
+          #menu-button:hover {
+            border-color: lightgray;
           }
         `}
       </style>

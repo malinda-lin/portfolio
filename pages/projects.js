@@ -1,10 +1,12 @@
 import {useState, useRef, useEffect} from 'react';
+import gsap from 'gsap';
 import Layout from '../components/layout';
 import {tasteMakers, hero, aModernFruitStand} from './projectData';
 
 const projects = () => {
   const myProjects = [tasteMakers, hero, aModernFruitStand];
   const [currentProject, setCurrentProject] = useState(0);
+  const project = useRef();
   const firstCircle = useRef();
   const secondCircle = useRef();
   const thirdCircle = useRef();
@@ -23,12 +25,15 @@ const projects = () => {
       }
       return;
     }
-
     if (currentProject !== myProjects.length - 1) {
       setCurrentProject(currentProject + 1);
     } else {
       setCurrentProject(0);
     }
+  };
+
+  const resetOpactiy = () => {
+    project.current.style.opacity = 0;
   };
 
   const setCircle = () => {
@@ -41,14 +46,19 @@ const projects = () => {
     }
   };
 
+  const animate = () => {
+    gsap.to(project.current, {opacity: 1, duration: 1});
+  };
+
   useEffect(() => {
+    animate();
     setCircle();
   });
 
   return (
     <Layout>
       <div>
-        <div className="project">
+        <div className="project" ref={project}>
           <img
             className="gif"
             src={myProjects[currentProject].gif}
@@ -135,7 +145,12 @@ const projects = () => {
       </div>
       <style jsx>
         {`
+          .example {
+            opacity: 0;
+            border: 1px solid red;
+          }
           .project {
+            opacity: 0;
             height: 450px;
             width: inherit;
             display: flex;

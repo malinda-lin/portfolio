@@ -81,11 +81,17 @@ const about = () => {
         <div className="experience">
           <div className="item">
             <h2>Hi, my name is Malinda.</h2>
-            <p>I love to travel, learn new things, and create art.</p>
+            <p>
+              I am a software engineer, a fashion designer, and a
+              nature/outdoors enthusiast.
+            </p>
           </div>
           <div className="item">
             <h2>Programming</h2>
-            <p>Technologies: Javascript, </p>
+            <p>
+              Technologies I use often: Javascript, React, Redux, Node.js,
+              Express, Sequelize, SQL Databases, HTML, CSS, Git
+            </p>
             <p>
               some paragrph about me some paragrph about me some paragrph about
               me some paragrph about me some paragrph about me some paragrph

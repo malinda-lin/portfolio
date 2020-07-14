@@ -1,13 +1,16 @@
 import Head from 'next/head';
-import {useEffect} from 'react';
+import {useEffect, useRef} from 'react';
+import gsap from 'gsap';
 import Layout, {siteTitle} from '../components/layout';
 import butterflyAnimation from '../animations/butterflyScene';
 import testScene from '../animations/other';
 
 export default function Home() {
+  const header = useRef();
   useEffect(() => {
     // butterflyAnimation();
     // testScene();
+    gsap.to(header.current, {opacity: 1, duration: 1.5});
   });
 
   return (
@@ -15,13 +18,14 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section>
+      <section ref={header}>
         <div id="header">Malinda Lin</div>
         <div id="subtitle">Creator & Software Engineer</div>
       </section>
       <style jsx>
         {`
           section {
+            opacity: 0;
             display: flex;
             flex-direction: column;
             position: absolute;
