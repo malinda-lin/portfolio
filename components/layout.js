@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import styles from './layout.module.css';
+import NavBar from './Navbar';
 
-export const siteTitle = 'Malinda Lin';
+export const siteTitle = 'Malinda Lin | Software Engineer';
 
 export default function Layout({children, home}) {
   return (
@@ -10,10 +10,16 @@ export default function Layout({children, home}) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Malinda Lin's Portfolio" />
-        {/* <script src="js/three.js"></script> */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=optional"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand&display=optional"
+          rel="stylesheet"
+        />
       </Head>
-
-      <header />
+      <NavBar />
       <main>{children}</main>
       <footer />
     </div>
