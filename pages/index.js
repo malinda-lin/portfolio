@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     // butterflyAnimation();
     // testScene();
-    gsap.to(header.current, {opacity: 1, duration: 1.5});
+    gsap.from(header.current, {opacity: 0, duration: 1.5});
   });
 
   return (
@@ -20,12 +20,11 @@ export default function Home() {
       </Head>
       <section ref={header}>
         <div id="header">Malinda Lin</div>
-        <div id="subtitle">Creator & Software Engineer</div>
+        <div id="subtitle">Software Engineer & Designer</div>
       </section>
       <style jsx>
         {`
           section {
-            opacity: 0;
             display: flex;
             flex-direction: column;
             position: absolute;

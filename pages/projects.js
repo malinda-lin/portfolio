@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import {useState, useRef, useEffect} from 'react';
 import gsap from 'gsap';
 import Layout from '../components/layout';
@@ -13,27 +14,30 @@ const projects = () => {
   const refArray = [firstCircle, secondCircle, thirdCircle];
 
   const circleClick = e => {
-    setCurrentProject(Number(e.target.value));
+    const target = e.target.value;
+    animateOut();
+    setTimeout(() => {
+      setCurrentProject(Number(target));
+    }, 500);
   };
 
   const nextClick = reverse => {
-    if (reverse) {
-      if (currentProject !== 0) {
-        setCurrentProject(currentProject - 1);
-      } else {
-        setCurrentProject(myProjects.length - 1);
+    animateOut();
+    setTimeout(() => {
+      if (reverse) {
+        if (currentProject !== 0) {
+          setCurrentProject(currentProject - 1);
+        } else {
+          setCurrentProject(myProjects.length - 1);
+        }
+        return;
       }
-      return;
-    }
-    if (currentProject !== myProjects.length - 1) {
-      setCurrentProject(currentProject + 1);
-    } else {
-      setCurrentProject(0);
-    }
-  };
-
-  const resetOpactiy = () => {
-    project.current.style.opacity = 0;
+      if (currentProject !== myProjects.length - 1) {
+        setCurrentProject(currentProject + 1);
+      } else {
+        setCurrentProject(0);
+      }
+    }, 500);
   };
 
   const setCircle = () => {
@@ -46,12 +50,24 @@ const projects = () => {
     }
   };
 
-  const animate = () => {
-    gsap.to(project.current, {opacity: 1, duration: 1});
+  const animateIn = () => {
+    gsap.to(project.current, {
+      opacity: 1,
+      duration: 1,
+      ease: 'power3.out'
+    });
+  };
+
+  const animateOut = () => {
+    gsap.to(project.current, {
+      opacity: 0.1,
+      duration: 1,
+      ease: 'power3.out'
+    });
   };
 
   useEffect(() => {
-    animate();
+    animateIn();
     setCircle();
   });
 
@@ -145,56 +161,27 @@ const projects = () => {
       </div>
       <style jsx>
         {`
-          .example {
-            opacity: 0;
-            border: 1px solid red;
-          }
           .project {
-            opacity: 0;
+            opacity: 0.1;
             height: 450px;
             width: inherit;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin: 4em 8em 4em 8em;
             padding: 1em;
           }
           #right-side {
+            height: inherit;
             margin: 1em;
-            padding: 1em;
+            padding-left: 1em;
+            padding-right: 1em;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-
-          }
-          #next-container {
-            margin: auto;
-            width: 8em;
-            height: 4em;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-          }
-          .circle-button {
-            width: 1em;
-            height: 1em;
-            margin: 0.5em;
-            border: 1px solid black;
-            border-radius: 50%;
-            background-color: transparent;
-          }
-          .circle-button:hover {
-            border-color: lightgray;
-          }
-          .next-button {
-            align-self: center;
-            border: none;
-            background-color: transparent;
-            font-size: large;
           }
           h2 {
-            font-size: 28px;
+            margin: 0.4em 0;
+            font-size: xx-large;
             white-space: nowrap;
           }
           p {
@@ -226,6 +213,35 @@ const projects = () => {
           .link {
             margin: 0.5em;
             width: 30px;
+          }
+          #next-container {
+            width: 8em;
+            height: 2em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            bottom: 10%;
+            right: 50%;
+            transform: translateX(50%);
+          }
+          .circle-button {
+            width: 1em;
+            height: 1em;
+            margin: 0 0.5em;
+            border: 1px solid black;
+            border-radius: 50%;
+            background-color: transparent;
+          }
+          .circle-button:hover {
+            border-color: lightgray;
+          }
+          .next-button {
+            align-self: center;
+            border: none;
+            background-color: transparent;
+            font-size: large;
           }
         `}
       </style>
