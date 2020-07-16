@@ -1,10 +1,9 @@
-import {useEffect, useRef} from 'react';
+import {useEffect, forwardRef} from 'react';
 import gsap from 'gsap';
 
 import {programming, design, nature} from '../pages/aboutData';
 
-const AboutContent = ({selectedContent}) => {
-  const content = useRef();
+const AboutContent = forwardRef(({selectedContent}, content) => {
 
   const selectContent = () => {
     switch (selectedContent) {
@@ -23,12 +22,11 @@ const AboutContent = ({selectedContent}) => {
   };
 
   useEffect(() => {
-    gsap.from(content.current, {
-      opacity: 0,
-      x: 100,
-      delay: 2,
-      duration: 2
-    });
+    gsap.fromTo(
+      content.current,
+      {opacity: 0, x: 120},
+      {opacity: 1, duration: 1, delay: 0.4, x: 0}
+    );
   });
 
   return (
@@ -53,6 +51,6 @@ const AboutContent = ({selectedContent}) => {
       </style>
     </div>
   );
-};
+});
 
 export default AboutContent;

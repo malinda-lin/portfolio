@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import {useEffect, useRef} from 'react';
 import gsap from 'gsap';
-import Layout, {siteTitle} from '../components/layout';
-import butterflyAnimation from '../animations/butterflyScene';
-import testScene from '../animations/other';
+import Layout, {siteTitle} from '../components/Layout';
+// import butterflyAnimation from '../animations/butterflyScene';
+// import testScene from '../animations/other';
 
 export default function Home() {
   const header = useRef();
@@ -28,14 +28,15 @@ export default function Home() {
             display: flex;
             flex-direction: column;
             position: absolute;
-            top: 50%;
+            top: 40%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
           }
           #header {
             text-align: center;
             font-size: 28px;
             margin: 0.5em;
+            
           }
           #subtitle {
             text-align: center;

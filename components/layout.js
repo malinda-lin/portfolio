@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styles from './layout.module.css';
+import styles from './Layout.module.css';
 import NavBar from './Navbar';
 
 export const siteTitle = 'Malinda Lin | Software Engineer';

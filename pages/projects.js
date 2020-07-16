@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import {useState, useRef, useEffect} from 'react';
 import gsap from 'gsap';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import {tasteMakers, hero, aModernFruitStand} from './projectData';
+
+// TODO: add arrowkey functionality to display next project
 
 const projects = () => {
   const myProjects = [tasteMakers, hero, aModernFruitStand];

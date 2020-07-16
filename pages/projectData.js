@@ -1,6 +1,6 @@
 export const tasteMakers = {
   name: 'TasteMakers',
-  gif: '/tastemakers.gif',
+  gif: '/images/tastemakers.gif',
   'gif-alt': 'gif of TasteMakers',
   github: 'https://github.com/tastemakers-node-feratu/capstone1',
   youtube: 'https://youtu.be/Jh6wxaCV14Q',
@@ -15,7 +15,7 @@ My contributions included wire-framing, schema design, full stack engineering, a
 };
 export const hero = {
   name: 'Hero',
-  gif: '/hero.gif',
+  gif: '/images/hero.gif',
   'gif-alt': 'gif of Hero',
   github: 'https://github.com/malinda-lin/Hero',
   youtube: null,
@@ -27,7 +27,7 @@ I learned to pick up two new libraries and compile its documentation in just a c
 };
 export const aModernFruitStand = {
   name: 'A Modern Fruit Stand',
-  gif: '/fruitStand.png',
+  gif: '/images/fruitStand.png',
   'gif-alt': 'gif of TasteMakers',
   github:
     'https://github.com/A-modern-fruit-shop-2001-tof232c/A-modern-fruit-stand',

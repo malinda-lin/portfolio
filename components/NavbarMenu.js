@@ -5,6 +5,7 @@ import {useRouter} from 'next/router';
 const NavbarMenu = ({open, setOpen}) => {
   const router = useRouter();
   const container = useRef();
+  const routes = useRef();
 
   const handleClick = e => {
     e.preventDefault();
@@ -20,10 +21,16 @@ const NavbarMenu = ({open, setOpen}) => {
 
   useEffect(() => {
     if (open) {
-      gsap.to(container.current, {opacity: 1, duration: 1});
+      gsap.to(container.current, {
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power4.out'
+      });
+      gsap.to(routes.current, {duration: 2, y: '-10%'});
       container.current.style.pointerEvents = 'auto';
     } else {
-      gsap.to(container.current, {opacity: 0, duration: 1});
+      gsap.to(container.current, {opacity: 0, duration: 0.5});
+      gsap.to(routes.current, {duration: 1, y: '10%'});
       container.current.style.pointerEvents = 'none';
     }
   });
@@ -31,21 +38,35 @@ const NavbarMenu = ({open, setOpen}) => {
   return (
     <div>
       <div id="container" ref={container}>
-        <div id="routes">
+        <div id="routes" ref={routes}>
           <div className="route-item">
-            <button className="route-button" type="button" value="/" onClick={handleClick}>
+            <button
+              className="route-button"
+              type="button"
+              value="/"
+              onClick={handleClick}
+            >
               Home
             </button>
           </div>
-
           <div className="route-item">
-            <button className="route-button" type="button" value="/projects" onClick={handleClick}>
+            <button
+              className="route-button"
+              type="button"
+              value="/projects"
+              onClick={handleClick}
+            >
               Projects
             </button>
           </div>
 
           <div className="route-item">
-            <button className="route-button" type="button" value="/about" onClick={handleClick}>
+            <button
+              className="route-button"
+              type="button"
+              value="/about"
+              onClick={handleClick}
+            >
               About
             </button>
           </div>
@@ -103,11 +124,13 @@ const NavbarMenu = ({open, setOpen}) => {
             height: 100%;
             background-color: white;
             z-index: 9;
-            display: flex;
-            justify-content: center;
           }
           #routes {
             display: flex;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
           }
           .route-item {
             padding: 1em;
@@ -117,7 +140,7 @@ const NavbarMenu = ({open, setOpen}) => {
           .route-button {
             border: none;
             background-color: transparent;
-            font-family: 'Quicksand', sans-serif;
+
             font-size: xx-large;
           }
           #contact {

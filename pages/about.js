@@ -1,16 +1,27 @@
 import {useEffect, useState, useRef} from 'react';
 import gsap from 'gsap';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import AboutContent from '../components/AboutContent';
 
 const about = () => {
+  const content = useRef();
   const headers = useRef();
 
   const [showContent, setShowContent] = useState('0');
   const [animateHeader, setAnimateHeader] = useState(true);
 
   const setContent = e => {
-    setShowContent(e.target.value);
+    const target = e.target.value;
+    if (showContent !== target) {
+      animateOut();
+      setTimeout(() => {
+        setShowContent(target);
+      }, 200);
+    }
+  };
+
+  const animateOut = () => {
+    gsap.fromTo(content.current, {opacity: 1}, {opacity: 0, duration: 0.2});
   };
 
   useEffect(() => {
@@ -18,7 +29,7 @@ const about = () => {
       gsap.from(headers.current, {
         opacity: 0,
         y: 100,
-        duration: 2
+        duration: 1
       });
       setAnimateHeader(false);
     }
@@ -48,7 +59,9 @@ const about = () => {
             and more . . .
           </div>
         </div>
-        <AboutContent selectedContent={showContent} />
+
+        <AboutContent selectedContent={showContent} ref={content} />
+
         <div id="resume-container">
           <a href="/resume/Malinda_Lin_Resume_2020.pdf" className="resume">
             <button className="resume-links" type="button">
