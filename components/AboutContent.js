@@ -1,10 +1,15 @@
 import {useEffect, forwardRef} from 'react';
 import gsap from 'gsap';
 
-import {programming, design, nature} from '../public/data/aboutData';
+import {
+  defaultString,
+  techStack,
+  programming,
+  design,
+  nature
+} from '../public/data/aboutData';
 
 const AboutContent = forwardRef(({selectedContent}, content) => {
-
   const selectContent = () => {
     switch (selectedContent) {
       case '0': {
@@ -17,7 +22,7 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
         return nature;
       }
       default:
-        break;
+        return defaultString;
     }
   };
 
@@ -32,20 +37,33 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
   return (
     <div>
       <div id="container" ref={content}>
+        {selectedContent === '0' ? (
+          <div className="experience-content">
+            <em className="font">Technologies I use often</em>
+            {': '}
+            {techStack}
+          </div>
+        ) : null}
         <div className="experience-content">{selectContent()}</div>
       </div>
       <style jsx>
         {`
           #container {
-            margin-top: 1em;
+            margin-top: 2%;
+            height: 100%;
             display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
+            flex-direction: column;
+            justify-content: center;
           }
           .experience-content {
+            margin-top: 1em;
+            align-self: flex-end;
             max-width: 70%;
-            margin: 1em 0;
             font-family: 'Quicksand', sans-serif;
+          }
+          .font {
+            font-family: 'Quicksand', sans-serif;
+            border-bottom: 1px dotted black;
           }
         `}
       </style>

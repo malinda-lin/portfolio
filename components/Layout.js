@@ -6,7 +6,7 @@ export const siteTitle = 'Malinda Lin | Software Engineer';
 
 export default function Layout({children, home}) {
   return (
-    <div>
+    <div style={{height: '100%', margin: 'auto', display: 'flex', flexDirection: 'column'}}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Malinda Lin's Portfolio" />
@@ -20,8 +20,7 @@ export default function Layout({children, home}) {
         />
       </Head>
       <NavBar />
-      <main>{children}</main>
-      <footer />
+      {children}
     </div>
   );
 }

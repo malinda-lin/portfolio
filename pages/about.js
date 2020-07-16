@@ -7,7 +7,7 @@ const about = () => {
   const content = useRef();
   const headers = useRef();
 
-  const [showContent, setShowContent] = useState('0');
+  const [showContent, setShowContent] = useState('');
   const [animateHeader, setAnimateHeader] = useState(true);
 
   const setContent = e => {
@@ -84,20 +84,21 @@ const about = () => {
       <style jsx>
         {`
           #container {
-            align-self: center;
-            margin: 1em 7em 4em 7em;
-            height: 100%;
-            width: inherit;
+            //margin-top: 5%;
+            //margin-bottom: 60%;
+            margin-left: 7em;
+            margin-right: 7em;
+            max-height: 700px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             // border: 1px solid black;
           }
           .experience-buttons {
             padding-left: 1em;
             display: flex;
             flex-direction: column;
-            margin: 1em;
+            margin: 2em;
             padding: 0em 0.5em;
             align-items: flex-start;
             // border: 1px solid black;

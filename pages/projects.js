@@ -75,92 +75,91 @@ const projects = () => {
 
   return (
     <Layout>
-      <div>
-        <div className="project" ref={project}>
-          <img
-            className="gif"
-            src={myProjects[currentProject].gif}
-            alt={myProjects[currentProject]['gif-alt']}
-          />
-          <div id="right-side">
-            <h2>{myProjects[currentProject].name}</h2>
-            <p id="description">{myProjects[currentProject].description}</p>
-            <p id="tech">{myProjects[currentProject].technologies}</p>
+      <div className="project" ref={project}>
+        <img
+          className="gif"
+          src={myProjects[currentProject].gif}
+          alt={myProjects[currentProject]['gif-alt']}
+        />
+        <div id="right-side">
+          <h2>{myProjects[currentProject].name}</h2>
+          <p id="description">{myProjects[currentProject].description}</p>
+          <p id="tech">{myProjects[currentProject].technologies}</p>
 
-            <div className="links">
-              {myProjects[currentProject].deployed ? (
-                <a
-                  className="link"
-                  href={myProjects[currentProject].deployed}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src="/images/link_icon.png" alt="demo link" />
-                </a>
-              ) : null}
-              {myProjects[currentProject].youtube ? (
-                <a
-                  className="link"
-                  href={myProjects[currentProject].youtube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src="/images/youtube-logo.svg" alt="youtube link" />
-                </a>
-              ) : null}
+          <div className="links">
+            {myProjects[currentProject].deployed ? (
               <a
                 className="link"
-                href={myProjects[currentProject].github}
+                href={myProjects[currentProject].deployed}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/images/github-logo.png" alt="github link" />
+                <img src="/images/link_icon.png" alt="demo link" />
               </a>
-            </div>
+            ) : null}
+            {myProjects[currentProject].youtube ? (
+              <a
+                className="link"
+                href={myProjects[currentProject].youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/youtube-logo.svg" alt="youtube link" />
+              </a>
+            ) : null}
+            <a
+              className="link"
+              href={myProjects[currentProject].github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/images/github-logo.png" alt="github link" />
+            </a>
           </div>
         </div>
-        <div id="next-container">
-          <button
-            className="next-button"
-            type="button"
-            onClick={() => {
-              nextClick(1);
-            }}
-          >
-            {'<<'}
-          </button>
-          <button
-            className="circle-button"
-            type="button"
-            value="0"
-            ref={firstCircle}
-            onClick={circleClick}
-          />
-          <button
-            className="circle-button"
-            type="button"
-            value="1"
-            ref={secondCircle}
-            onClick={circleClick}
-          />
-          <button
-            className="circle-button"
-            type="button"
-            value="2"
-            ref={thirdCircle}
-            onClick={circleClick}
-          />
-          <button
-            className="next-button"
-            type="button"
-            onClick={() => {
-              nextClick(0);
-            }}
-          >
-            {'>>'}
-          </button>
-        </div>
       </div>
+      <div id="next-container">
+        <button
+          className="next-button"
+          type="button"
+          onClick={() => {
+            nextClick(1);
+          }}
+        >
+          {'<<'}
+        </button>
+        <button
+          className="circle-button"
+          type="button"
+          value="0"
+          ref={firstCircle}
+          onClick={circleClick}
+        />
+        <button
+          className="circle-button"
+          type="button"
+          value="1"
+          ref={secondCircle}
+          onClick={circleClick}
+        />
+        <button
+          className="circle-button"
+          type="button"
+          value="2"
+          ref={thirdCircle}
+          onClick={circleClick}
+        />
+        <button
+          className="next-button"
+          type="button"
+          onClick={() => {
+            nextClick(0);
+          }}
+        >
+          {'>>'}
+        </button>
+      </div>
+
       <style jsx>
         {`
           .project {
