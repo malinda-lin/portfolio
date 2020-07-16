@@ -1,7 +1,7 @@
 import {useEffect, forwardRef} from 'react';
 import gsap from 'gsap';
 
-import {programming, design, nature} from '../pages/aboutData';
+import {programming, design, nature} from '../public/data/aboutData';
 
 const AboutContent = forwardRef(({selectedContent}, content) => {
 

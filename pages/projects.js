@@ -2,7 +2,7 @@
 import {useState, useRef, useEffect} from 'react';
 import gsap from 'gsap';
 import Layout from '../components/Layout';
-import {tasteMakers, hero, aModernFruitStand} from './projectData';
+import {tasteMakers, hero, aModernFruitStand} from '../public/data/projectData';
 
 // TODO: add arrowkey functionality to display next project
 
