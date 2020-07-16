@@ -1,12 +1,11 @@
 import Head from 'next/head';
-import styles from './Layout.module.css';
 import NavBar from './Navbar';
 
 export const siteTitle = 'Malinda Lin | Software Engineer';
 
 export default function Layout({children, home}) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Malinda Lin's Portfolio" />
