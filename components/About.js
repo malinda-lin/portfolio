@@ -169,7 +169,7 @@ const about = () => {
             margin-top: 5em;
             padding: 0em 0.5em;
             align-items: flex-start;
-            border: 1px solid black;
+            // border: 1px solid black;
           }
 
           .button-container {
