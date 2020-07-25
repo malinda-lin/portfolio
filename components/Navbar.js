@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import {useState} from 'react';
+import gsap from 'gsap';
+import {ScrollToPlugin} from 'gsap/dist/ScrollToPlugin';
 import NavbarMenu from './NavbarMenu';
 
 const Navbar = () => {
@@ -8,6 +10,8 @@ const Navbar = () => {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  gsap.registerPlugin(ScrollToPlugin);
 
   return (
     <div>
@@ -18,12 +22,13 @@ const Navbar = () => {
       <style jsx>
         {`
           #container {
+            position: fixed;
             display: flex;
             justify-content: flex-end;
           }
           #menu-button {
             z-index: 10;
-            margin: 2em;
+            margin: 3em;
             height: 0.7em;
             width: 2em;
             border-top: 0.15em solid black;

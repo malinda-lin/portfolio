@@ -36,5 +36,6 @@ export const aModernFruitStand = {
   description: `As a team of 4, we created an e-commerce website that sells fruits. We were highly collaborative and had daily stand up.
   
 I took initiative in the product slice and we pair programmed the shopping cart component. Some features included viewing a single product, the capability to add or remove a desired amount to or from the shopping cart, and checking out the cart which turns it into a past order.`,
-  technologies: 'React, Redux, Node, Express, Sequelize, PostgreSQL, Passport, Webpack'
+  technologies:
+    'React, Redux, Node, Express, Sequelize, PostgreSQL, Passport, Webpack'
 };

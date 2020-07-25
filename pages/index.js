@@ -1,49 +1,101 @@
 import Head from 'next/head';
-import {useEffect, useRef} from 'react';
-import gsap from 'gsap';
-import Layout, {siteTitle} from '../components/Layout';
-// import butterflyAnimation from '../animations/butterflyScene';
-// import testScene from '../animations/other';
+import {useEffect, useState} from 'react';
 
-export default function Home() {
-  const header = useRef();
+import Home from './home';
+
+function Root() {
+  const [loaded, setLoaded] = useState(false);
+
+  const isLoaded = () => {
+    if (loaded) {
+      return <Home />;
+    }
+    return (
+      <div style={{height: '100vh', width: '100%', backgroundColor: 'white'}}>
+        {/* <div id="dot-container">
+          <div className="dot" />
+          <div className="dot" />
+          <div className="dot" />
+        </div>
+        <style jsx>
+          {`
+            #dot-container {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translateY(-50%) translateX(-50%);
+              padding: 1em;
+              display: flex;
+              justify-content: center;
+            }
+            .dot {
+              margin: 1em;
+              height: 1em;
+              width: 1em;
+              background-color: transparent;
+              border-radius: 50%;
+              animation: loading 2s infinite;
+            }
+            @keyframes loading {
+              from {
+                background-color: transparent;
+              }
+              50% {
+                background-color: black;
+              }
+              to {
+                background-color: transparent;
+              }
+            }
+            .dot:nth-child(2) {
+              animation-delay: 200ms;
+            }
+            .dot:nth-child(3) {
+              animation-delay: 400ms;
+            }
+          `}
+        </style> */}
+      </div>
+    );
+  };
+
+  const loadFont = async () => {
+    const DancingScript = new FontFace(
+      'Dancing Script',
+      'url(fonts/DancingScript-VariableFont_wght.ttf)'
+    );
+
+    const Quicksand = new FontFace(
+      'Quicksand',
+      'url(fonts/Quicksand-VariableFont_wght.ttf)'
+    );
+    await Quicksand.load();
+    await DancingScript.load();
+
+    await document.fonts.add(Quicksand);
+    await document.fonts.add(DancingScript);
+
+    document.fonts.ready.then(function(fontFaceSet) {
+      if (fontFaceSet.status === 'loaded') {
+        setLoaded(true);
+      }
+    });
+  };
+
   useEffect(() => {
-    // butterflyAnimation();
-    // testScene();
-    gsap.from(header.current, {opacity: 0, duration: 1.5});
+    loadFont();
   });
 
   return (
-    <Layout home>
+    <div>
       <Head>
-        <title>{siteTitle}</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Malinda Lin's Portfolio" />
+        <title>Malinda Lin | Software Engineer</title>
       </Head>
-      <section ref={header}>
-        <div id="header">Malinda Lin</div>
-        <div id="subtitle">Software Engineer & Designer</div>
-      </section>
-      <style jsx>
-        {`
-          section {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translateX(-50%);
-          }
-          #header {
-            text-align: center;
-            font-size: 28px;
-            margin: 0.5em;
-            
-          }
-          #subtitle {
-            text-align: center;
-            font-size: 18px;
-          }
-        `}
-      </style>
-    </Layout>
+      {isLoaded()}
+    </div>
   );
 }
+
+export default Root;

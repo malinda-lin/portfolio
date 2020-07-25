@@ -1,37 +1,88 @@
 import {useEffect, useState, useRef} from 'react';
 import gsap from 'gsap';
-import Layout from '../components/Layout';
-import AboutContent from '../components/AboutContent';
+import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
+import Layout from './Layout';
+import AboutContent from './AboutContent';
 
 const about = () => {
   const content = useRef();
+  // const project = useRef();
   const headers = useRef();
 
-  const [showContent, setShowContent] = useState('');
-  const [animateHeader, setAnimateHeader] = useState(true);
+  const [showContent, setShowContent] = useState(null);
+  const [initHeader, setInitHeader] = useState(true);
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  const easeOutContent = () => {
+    gsap.fromTo(content.current, {opacity: 1, duration: 0.5}, {opacity: 0});
+  };
+
+  const easeInContent = e => {
+    gsap.fromTo(
+      content.current,
+      {
+        opacity: 0,
+        rotation: 5,
+        transformOrigin: 'left bottom',
+        top: e.clientY,
+        left: e.clientX - 100
+      },
+      {
+        opacity: 1,
+        rotation: 0,
+        duration: 2,
+        top: e.clientY,
+        left: e.clientX - 100
+      }
+    );
+  };
+
+  const unSetContent = () => {
+    easeOutContent();
+    setTimeout(() => {
+      setShowContent(null);
+    }, 500);
+  };
+  // fades out current content and sets new content
   const setContent = e => {
+    e.persist();
+    console.log('enter');
+    // lower opacity so paragraph is more readable
+    gsap.to(headers.current, 1, {opacity: 0.1});
+
     const target = e.target.value;
     if (showContent !== target) {
-      animateOut();
+      easeOutContent();
       setTimeout(() => {
         setShowContent(target);
-      }, 200);
+        easeInContent(e);
+      }, 500);
     }
   };
 
-  const animateOut = () => {
-    gsap.fromTo(content.current, {opacity: 1}, {opacity: 0, duration: 0.2});
-  };
-
   useEffect(() => {
-    if (animateHeader) {
-      gsap.from(headers.current, {
-        opacity: 0,
-        y: 100,
-        duration: 1
-      });
-      setAnimateHeader(false);
+    gsap.defaults({overwrite: 'auto'});
+    // only animates when component is refreshed
+    if (initHeader) {
+      gsap.fromTo(
+        headers.current,
+        {opacity: 0.3, y: 120, x: -80},
+        {
+          duration: 1.5,
+          opacity: 1,
+          y: 0,
+          x: 0,
+          scrollTrigger: {
+            trigger: headers.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+            toggleActions: 'restart pause resume reset'
+          }
+        }
+      );
+      setInitHeader(false);
     }
   });
 
@@ -41,19 +92,37 @@ const about = () => {
         <div ref={headers} className="experience-buttons">
           <div className="button-container">
             I am a
-            <button type="button" onClick={setContent} value="0">
+            <button
+              type="button"
+              onClick={setContent}
+              onMouseEnter={setContent}
+              onMouseLeave={unSetContent}
+              value="0"
+            >
               SOFTWARE ENGINEER,
             </button>
           </div>
           <div className="button-container">
             a
-            <button type="button" onClick={setContent} value="1">
+            <button
+              type="button"
+              onClick={setContent}
+              onMouseEnter={setContent}
+              onMouseLeave={unSetContent}
+              value="1"
+            >
               FASHION DESIGNER,
             </button>
           </div>
           <div className="button-container">
             a
-            <button type="button" onClick={setContent} value="2">
+            <button
+              type="button"
+              onClick={setContent}
+              onMouseEnter={setContent}
+              onMouseLeave={unSetContent}
+              value="2"
+            >
               NATURE LOVER,
             </button>
             and more . . .
@@ -84,11 +153,10 @@ const about = () => {
       <style jsx>
         {`
           #container {
-            //margin-top: 5%;
-            //margin-bottom: 60%;
+            position: relative;
             margin-left: 7em;
             margin-right: 7em;
-            max-height: 700px;
+            height: inherit;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -98,34 +166,32 @@ const about = () => {
             padding-left: 1em;
             display: flex;
             flex-direction: column;
-            margin: 2em;
+            margin-top: 5em;
             padding: 0em 0.5em;
             align-items: flex-start;
-            // border: 1px solid black;
+            border: 1px solid black;
           }
 
           .button-container {
-            font-size: xx-large;
+            font-size: 6em;
           }
           button {
             font-family: 'Quicksand', sans-serif;
             font-size: xx-large;
             margin: 0.5em;
-            padding: 0 0.5em;
+            padding: 0;
             background-color: transparent;
             font-size: 0.75em;
             white-space: nowrap;
             border: none;
+            border-bottom: 1px dotted black;
             // border: 1px solid black;
           }
           #resume-container {
-            position: fixed;
-            bottom: 10%;
-            transform: translateX(50%);
-            right: 50%;
             display: flex;
             align-items: center;
             align-self: center;
+            margin-bottom: 5em;
           }
           .resume {
             margin: 0;
@@ -147,3 +213,5 @@ const about = () => {
 };
 
 export default about;
+
+//  ref={content} x={x} y={y}

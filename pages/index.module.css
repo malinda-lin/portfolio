@@ -1,0 +1,20 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+.cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  z-index: 11;
+  pointer-events: none
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}

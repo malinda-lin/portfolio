@@ -1,15 +1,16 @@
-import {useEffect, forwardRef} from 'react';
+/* eslint-disable react/prop-types */
+import {useEffect, forwardRef, useState, useRef} from 'react';
 import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
 
-import {
-  defaultString,
-  techStack,
-  programming,
-  design,
-  nature
-} from '../public/data/aboutData';
+import {techStack, programming, design, nature} from '../public/data/aboutData';
 
 const AboutContent = forwardRef(({selectedContent}, content) => {
+
+  // const content = useRef();
+  // const [x, setX] = useState(null);
+  // const [y, setY] = useState(null);
+
   const selectContent = () => {
     switch (selectedContent) {
       case '0': {
@@ -22,17 +23,13 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
         return nature;
       }
       default:
-        return defaultString;
+        return null;
     }
   };
 
-  useEffect(() => {
-    gsap.fromTo(
-      content.current,
-      {opacity: 0, x: 120},
-      {opacity: 1, duration: 1, delay: 0.4, x: 0}
-    );
-  });
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {});
 
   return (
     <div>
@@ -49,17 +46,22 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
       <style jsx>
         {`
           #container {
-            margin-top: 2%;
-            height: 100%;
+            opacity: 0;
+            z-index: 8;
+            height: 30%;
+            width: 50%;
+            position: absolute;
+            pointer-events: none;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
           }
           .experience-content {
-            margin-top: 1em;
-            align-self: flex-end;
-            max-width: 70%;
+            margin-top: 0.5em;
+            align-self: center;
             font-family: 'Quicksand', sans-serif;
+            text-align: left;
+            font-size: large;
           }
           .font {
             font-family: 'Quicksand', sans-serif;
@@ -72,3 +74,7 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
 });
 
 export default AboutContent;
+
+// , x, y
+
+// forwardRef( , content );
