@@ -8,6 +8,7 @@ import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
 const projects = ({project}) => {
   const component = useRef();
   const name = useRef();
+  const links = useRef();
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -34,6 +35,16 @@ const projects = ({project}) => {
         toggleActions: 'restart pause resume reverse'
       }
     });
+    gsap.to(links.current, 1, {
+      scale: 1.5,
+      transform: 'translate3d(-50px, 10px, 5px)',
+      scrollTrigger: {
+        trigger: links.current,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1,
+      }
+    })
   });
 
   return (
@@ -45,7 +56,7 @@ const projects = ({project}) => {
           <p id="description">{project.description}</p>
           <p id="tech">{project.technologies}</p>
 
-          <div className="links">
+          <div ref={links} className="links">
             {project.deployed ? (
               <a
                 className="link"
@@ -83,7 +94,7 @@ const projects = ({project}) => {
           h2 {
             position: absolute;
             right: 3em;
-            font-size: 5em;
+            font-size: 4em;
             white-space: nowrap;
             z-index: 9;
           }
