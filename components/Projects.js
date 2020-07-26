@@ -13,8 +13,7 @@ const projects = ({project}) => {
 
   useEffect(() => {
     gsap.from(component.current, 1, {
-      x: 100,
-      y: 70,
+      transform: 'translate3d(100px, 70px, 0px)',
       opacity: 0.5,
       scrollTrigger: {
         trigger: component.current,
@@ -25,8 +24,7 @@ const projects = ({project}) => {
       }
     });
     gsap.from(name.current, 1, {
-      x: '2em',
-      y: 10,
+      transform: 'translate3d(2em, 10px, 0px)',
       opacity: 0.5,
       scrollTrigger: {
         trigger: name.current,
@@ -85,9 +83,9 @@ const projects = ({project}) => {
           h2 {
             position: absolute;
             right: 3em;
-            margin: 0.4em 0;
-            font-size: 4em;
+            font-size: 5em;
             white-space: nowrap;
+            z-index: 9;
           }
           .project {
             opacity: 1;
@@ -105,20 +103,25 @@ const projects = ({project}) => {
             padding-left: 1em;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             //text-align: left;
           }
 
           p {
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'EBGaramond', sans-serif;
             white-space: -moz-pre-wrap; /* Firefox */
             white-space: -pre-wrap; /* ancient Opera */
             white-space: -o-pre-wrap; /* newer Opera */
             white-space: pre-wrap; /* Chrome; W3C standard */
             word-wrap: break-word; /* IE */
           }
+          #description {
+            margin-top: 1em;
+            font-size: large;
+          }
           #tech {
             margin: 1.5em 0 0.8em 0;
-            font-size: x-small;
+            font-size: small;
           }
           .gif {
             max-height: 450px;

@@ -24,7 +24,7 @@ function Home() {
     });
 
     gsap.to(header.current, {
-      y: 100,
+      transform: 'translate3d(0px, 100px, 0px)',
       rotation: 5,
       transformOrigin: 'left bottom',
       opacity: 0,
@@ -38,7 +38,7 @@ function Home() {
 
     gsap.from(projectHeader.current, 1.5, {
       opacity: 0,
-      x: -200,
+      transform: 'translate3d(-200px, 0px, 0px)',
       scrollTrigger: {
         trigger: projectHeader.current,
         start: 'top bottom',
@@ -95,12 +95,12 @@ function Home() {
           }
           #projects-header {
             margin-left: 1em;
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'EBGaramond', sans-serif;
             font-size: 5em;
           }
           #projects-header div {
             align-self: flex-start;
-            //   font-family: 'Quicksand', sans-serif;
+            //   font-family: 'EBGaramond', sans-serif;
           }
         `}
       </style>
@@ -109,9 +109,3 @@ function Home() {
 }
 
 export default Home;
-
-// scrollTrigger: {
-//   trigger: cover.current,
-//   // scrub: true,
-//   pin: true
-// }

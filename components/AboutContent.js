@@ -1,16 +1,9 @@
 /* eslint-disable react/prop-types */
-import {useEffect, forwardRef, useState, useRef} from 'react';
-import gsap from 'gsap';
-import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
+import {forwardRef} from 'react';
 
 import {techStack, programming, design, nature} from '../public/data/aboutData';
 
 const AboutContent = forwardRef(({selectedContent}, content) => {
-
-  // const content = useRef();
-  // const [x, setX] = useState(null);
-  // const [y, setY] = useState(null);
-
   const selectContent = () => {
     switch (selectedContent) {
       case '0': {
@@ -27,16 +20,12 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
     }
   };
 
-  gsap.registerPlugin(ScrollTrigger);
-
-  useEffect(() => {});
-
   return (
     <div>
       <div id="container" ref={content}>
         {selectedContent === '0' ? (
           <div className="experience-content">
-            <em className="font">Technologies I use often</em>
+            <b className="font">Technologies I use often</b>
             {': '}
             {techStack}
           </div>
@@ -48,23 +37,23 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
           #container {
             opacity: 0;
             z-index: 8;
-            height: 30%;
             width: 50%;
-            position: absolute;
+            position: fixed;
             pointer-events: none;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+            // border: 1px solid black;
           }
           .experience-content {
             margin-top: 0.5em;
             align-self: center;
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'EBGaramond', sans-serif;
             text-align: left;
             font-size: large;
           }
           .font {
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'EBGaramond', sans-serif;
             border-bottom: 1px dotted black;
           }
         `}

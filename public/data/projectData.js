@@ -5,7 +5,7 @@ export const tasteMakers = {
   github: 'https://github.com/tastemakers-node-feratu/capstone1',
   youtube: 'https://youtu.be/Jh6wxaCV14Q',
   deployed: null,
-  description: `We came up with TasteMakers because we wanted a social media app that focused on keeping friends connected and encouraging city exploration.
+  description: `Our team of 3 came up with TasteMakers because we wanted a social media app that focused on keeping friends connected and encouraging city exploration.
   
 TasteMakers is a mobile app because it has features that users will use on the go. It shows users what their friends have been up to through snapshots. A snapshot mainly consists of a location, photo, and description.
   

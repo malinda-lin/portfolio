@@ -8,6 +8,7 @@ const about = () => {
   const content = useRef();
   // const project = useRef();
   const headers = useRef();
+  const resume = useRef();
 
   const [showContent, setShowContent] = useState(null);
   const [initHeader, setInitHeader] = useState(true);
@@ -19,21 +20,28 @@ const about = () => {
   };
 
   const easeInContent = e => {
+    let x = e.clientX;
+    const y = e.clientY;
+    // keeps the content inside the window, prevents overflow
+    if (content.current && x > window.innerWidth / 2) {
+      x = window.innerWidth - content.current.offsetWidth - 100;
+    }
     gsap.fromTo(
       content.current,
       {
         opacity: 0,
-        rotation: 5,
-        transformOrigin: 'left bottom',
-        top: e.clientY,
-        left: e.clientX - 100
+        rotation: 1,
+        transformOrigin: '50% 50%',
+        // top and left refers to container
+        top: y - 10,
+        left: x - 90
       },
       {
         opacity: 1,
         rotation: 0,
-        duration: 2,
-        top: e.clientY,
-        left: e.clientX - 100
+        duration: 1,
+        top: y,
+        left: x - 100
       }
     );
   };
@@ -67,12 +75,11 @@ const about = () => {
     if (initHeader) {
       gsap.fromTo(
         headers.current,
-        {opacity: 0.3, y: 120, x: -80},
+        {opacity: 0.5, transform: 'translate3d(-80px, 120px, 0px)'},
         {
           duration: 1.5,
           opacity: 1,
-          y: 0,
-          x: 0,
+          transform: 'translate3d(0px, 0px, 0px)',
           scrollTrigger: {
             trigger: headers.current,
             start: 'top bottom',
@@ -84,6 +91,26 @@ const about = () => {
       );
       setInitHeader(false);
     }
+    gsap.fromTo(
+      resume.current,
+      {
+        opacity: 0.5,
+        scale: 1,
+        skewX: '20deg'
+      },
+      {
+        duration: 1,
+        opacity: 1,
+        scale: '1.3',
+        skewX: '-10deg',
+        scrollTrigger: {
+          trigger: resume.current,
+          start: 'top+=10 bottom',
+          end: 'bottom top',
+          scrub: 1
+        }
+      }
+    );
   });
 
   return (
@@ -93,6 +120,7 @@ const about = () => {
           <div className="button-container">
             I am a
             <button
+              className="content-button"
               type="button"
               onClick={setContent}
               onMouseEnter={setContent}
@@ -105,6 +133,7 @@ const about = () => {
           <div className="button-container">
             a
             <button
+              className="content-button"
               type="button"
               onClick={setContent}
               onMouseEnter={setContent}
@@ -117,6 +146,7 @@ const about = () => {
           <div className="button-container">
             a
             <button
+              className="content-button"
               type="button"
               onClick={setContent}
               onMouseEnter={setContent}
@@ -131,7 +161,7 @@ const about = () => {
 
         <AboutContent selectedContent={showContent} ref={content} />
 
-        <div id="resume-container">
+        <div ref={resume} id="resume-container">
           <a href="/resume/Malinda_Lin_Resume_2020.pdf" className="resume">
             <button className="resume-links" type="button">
               Download
@@ -174,9 +204,10 @@ const about = () => {
 
           .button-container {
             font-size: 6em;
+            color: gray;
           }
           button {
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'EBGaramond', sans-serif;
             font-size: xx-large;
             margin: 0.5em;
             padding: 0;
@@ -186,25 +217,32 @@ const about = () => {
             border: none;
             border-bottom: 1px dotted black;
             // border: 1px solid black;
+            transition-property: opacity;
+            transition-duration: 1s;
+          }
+          .content-button:hover {
+            opacity: 0;
           }
           #resume-container {
             display: flex;
             align-items: center;
             align-self: center;
-            margin-bottom: 5em;
+            margin: 5em 0;
+            // border: 1px solid pink;
           }
           .resume {
             margin: 0;
             padding: 0;
           }
           .resume-links {
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'EBGaramond', sans-serif;
             border: none;
             margin: 0.5em;
             padding: 0;
             background-color: transparent;
-            font-size: 0.75em;
+            font-size: 0.9em;
             white-space: nowrap;
+            border-bottom: 1px dotted gray;
           }
         `}
       </style>
