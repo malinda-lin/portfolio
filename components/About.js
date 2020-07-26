@@ -243,6 +243,15 @@ const about = () => {
             white-space: nowrap;
             border-bottom: 1px dotted gray;
           }
+          // @media (max-width: 768px) {
+          //   #container {
+          //     color: pink;
+          //     transform: rotate(-90deg);
+          //     transform-origin: left top;
+          //     width: 100vh;
+          //     height: 100vw;
+          //   }
+          // }
         `}
       </style>
     </Layout>
@@ -250,6 +259,3 @@ const about = () => {
 };
 
 export default about;
-// @media(max-width: 768px) {
-
-// }

@@ -69,15 +69,15 @@ function Home() {
         <div>Here are my projects:</div>
       </section>
 
-      <section className={styles.section}>
+      <section className={(styles.section, 'project')}>
         <Projects project={myProjects[0]} />
       </section>
 
-      <section className={styles.section}>
+      <section className={(styles.section, 'project')}>
         <Projects project={myProjects[1]} />
       </section>
 
-      <section className={styles.section}>
+      <section className={(styles.section, 'project')}>
         <Projects project={myProjects[2]} />
       </section>
       <style jsx>
@@ -104,6 +104,20 @@ function Home() {
             align-self: flex-start;
             //   font-family: 'EBGaramond', sans-serif;
           }
+          .project {
+            background-color: pink;
+            height: 100vh;
+          }
+          // @media only screen and (max-width: 768px) {
+          //   #home h1 {
+          //     color: pink;
+          //     background-color: green;
+          //     // transform: rotate(-90deg);
+          //     // transform-origin: left top;
+          //     // width: 100vh;
+          //     // height: 100vw;
+          //   }
+          // }
         `}
       </style>
     </div>

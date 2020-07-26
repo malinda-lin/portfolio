@@ -110,6 +110,7 @@ const projects = ({project}) => {
           }
           #right-side {
             height: inherit;
+            min-width: 100%;
             margin: 1em 0 1em 1em 1em;
             padding-left: 1em;
             display: flex;

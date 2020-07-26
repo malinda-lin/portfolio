@@ -59,7 +59,7 @@ function Root() {
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Malinda Lin's Portfolio" />
-        <meta name="viewport" content="width-device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Malinda Lin | Software Engineer</title>
       </Head>
       {isLoaded()}
@@ -68,3 +68,15 @@ function Root() {
 }
 
 export default Root;
+
+/* @media screen and (max-width: 768px) and (orientation: landscape) {
+  * {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+} */
