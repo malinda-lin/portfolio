@@ -11,52 +11,14 @@ function Root() {
       return <Home />;
     }
     return (
-      <div style={{height: '100vh', width: '100%', backgroundColor: 'white'}}>
-        {/* <div id="dot-container">
-          <div className="dot" />
-          <div className="dot" />
-          <div className="dot" />
-        </div>
-        <style jsx>
-          {`
-            #dot-container {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translateY(-50%) translateX(-50%);
-              padding: 1em;
-              display: flex;
-              justify-content: center;
-            }
-            .dot {
-              margin: 1em;
-              height: 1em;
-              width: 1em;
-              background-color: transparent;
-              border-radius: 50%;
-              animation: loading 2s infinite;
-            }
-            @keyframes loading {
-              from {
-                background-color: transparent;
-              }
-              50% {
-                background-color: black;
-              }
-              to {
-                background-color: transparent;
-              }
-            }
-            .dot:nth-child(2) {
-              animation-delay: 200ms;
-            }
-            .dot:nth-child(3) {
-              animation-delay: 400ms;
-            }
-          `}
-        </style> */}
-      </div>
+      <div style={{height: '100vh', width: '100%', backgroundColor: 'white'}} />
     );
+  };
+
+  const adjustOrientation = () => {
+    if (screen.width < 600) {
+      screen.orientation.lock('landscape');
+    }
   };
 
   const loadFont = async () => {
@@ -88,6 +50,7 @@ function Root() {
   };
 
   useEffect(() => {
+    adjustOrientation();
     loadFont();
   });
 
@@ -96,6 +59,7 @@ function Root() {
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Malinda Lin's Portfolio" />
+        <meta name="viewport" content="width-device-width" />
         <title>Malinda Lin | Software Engineer</title>
       </Head>
       {isLoaded()}

@@ -30,7 +30,7 @@ const Navbar = () => {
             z-index: 10;
             margin: 3em;
             height: 0.7em;
-            width: 2em;
+            min-width: 2em;
             border-top: 0.15em solid black;
             border-bottom: 0.15em solid black;
             border-left: 0 solid transparent;

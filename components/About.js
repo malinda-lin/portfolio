@@ -75,11 +75,11 @@ const about = () => {
     if (initHeader) {
       gsap.fromTo(
         headers.current,
-        {opacity: 0.5, transform: 'translate3d(-80px, 120px, 0px)'},
+        {opacity: 0.5, transform: 'translate3d(-50px, 120px, 0px)'},
         {
           duration: 1.5,
           opacity: 1,
-          transform: 'translate3d(0px, 0px, 0px)',
+          transform: 'translate3d(40px, 0px, 0px)',
           scrollTrigger: {
             trigger: headers.current,
             start: 'top bottom',
@@ -183,36 +183,35 @@ const about = () => {
       <style jsx>
         {`
           #container {
+            margin: auto;
+            align-self: center;
             position: relative;
-            margin-left: 7em;
-            margin-right: 7em;
             height: inherit;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
             // border: 1px solid black;
           }
           .experience-buttons {
-            padding-left: 1em;
+            align-self: center;
             display: flex;
             flex-direction: column;
             margin-top: 5em;
-            padding: 0em 0.5em;
             align-items: flex-start;
             // border: 1px solid black;
           }
 
           .button-container {
-            font-size: 6em;
+            font-size: 6vw;
             color: gray;
           }
           button {
             font-family: 'EBGaramond', sans-serif;
-            font-size: xx-large;
+            font-size: 7vw;
             margin: 0.5em;
             padding: 0;
             background-color: transparent;
-            font-size: 0.75em;
             white-space: nowrap;
             border: none;
             border-bottom: 1px dotted black;
@@ -240,7 +239,7 @@ const about = () => {
             margin: 0.5em;
             padding: 0;
             background-color: transparent;
-            font-size: 0.9em;
+            font-size: 2vw;
             white-space: nowrap;
             border-bottom: 1px dotted gray;
           }

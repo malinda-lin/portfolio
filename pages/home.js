@@ -84,19 +84,21 @@ function Home() {
         {`
           #home {
             height: 100vh;
-            font-size: 8em;
+            font-size: 8vw;
           }
           #home h1 {
-            position: absolute;
-            top: 0;
-            padding-top 1em;
+            margin: auto;
+            white-space: nowrap;
+            position: relative;
+            align-self: center;
+            text-align: center;
           }
           #about {
           }
           #projects-header {
             margin-left: 1em;
             font-family: 'EBGaramond', sans-serif;
-            font-size: 5em;
+            font-size: 7vw;
           }
           #projects-header div {
             align-self: flex-start;

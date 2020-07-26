@@ -94,7 +94,7 @@ const projects = ({project}) => {
           h2 {
             position: absolute;
             right: 3em;
-            font-size: 4em;
+            font-size: 7vh;
             white-space: nowrap;
             z-index: 9;
           }
@@ -151,7 +151,7 @@ const projects = ({project}) => {
           }
           .link {
             margin: 0.5em;
-            width: 30px;
+            width: 35px;
           }
         `}
       </style>

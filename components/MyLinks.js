@@ -37,7 +37,7 @@ const MyLinks = () => {
         {`
           .link {
             margin: 0.5em 0.5em;
-            width: 25px;
+            width: 35px;
           }
         `}
       </style>
