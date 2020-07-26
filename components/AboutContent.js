@@ -63,7 +63,3 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
 });
 
 export default AboutContent;
-
-// , x, y
-
-// forwardRef( , content );

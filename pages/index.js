@@ -15,11 +15,11 @@ function Root() {
     );
   };
 
-  const adjustOrientation = () => {
-    if (screen.width < 600) {
-      screen.orientation.lock('landscape');
-    }
-  };
+  // const adjustOrientation = () => {
+  //   if (screen.width < 600) {
+  //     screen.orientation.lock('landscape');
+  //   }
+  // };
 
   const loadFont = async () => {
     const DancingScript = new FontFace(
@@ -50,7 +50,7 @@ function Root() {
   };
 
   useEffect(() => {
-    adjustOrientation();
+    // adjustOrientation();
     loadFont();
   });
 

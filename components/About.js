@@ -186,12 +186,12 @@ const about = () => {
             margin: auto;
             align-self: center;
             position: relative;
-            height: inherit;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            // border: 1px solid black;
+            border: 1px solid black;
           }
           .experience-buttons {
             align-self: center;
@@ -250,5 +250,6 @@ const about = () => {
 };
 
 export default about;
+// @media(max-width: 768px) {
 
-//  ref={content} x={x} y={y}
+// }
