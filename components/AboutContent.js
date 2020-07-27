@@ -21,7 +21,7 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
   };
 
   return (
-    <div>
+    <div style={{display: 'flex', justifyContent: 'center'}}>
       <div id="container" ref={content}>
         {selectedContent === '0' ? (
           <div className="experience-content">
@@ -57,8 +57,9 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
           }
           @media only screen and (max-width: 770px) {
             #container {
-              margin-top: 1vh;
-              justify-content: flex-end;
+              margin-top: 2vh;
+              justify-content: center;
+              align-content: center;
               align-self: center;
               position: relative;
               width: 85%;

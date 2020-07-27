@@ -13,40 +13,40 @@ const projects = ({project}) => {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    // if (window.innerWidth > 770) {
-    //   gsap.from(component.current, 1, {
-    //     transform: 'translate3d(90px, 70px, 0px)',
-    //     opacity: 0.5,
-    //     scrollTrigger: {
-    //       trigger: component.current,
-    //       start: 'top bottom',
-    //       end: 'bottom top',
-    //       scrub: 1,
-    //       toggleActions: 'restart pause resume reverse'
-    //     }
-    //   });
-    //   gsap.from(name.current, 1, {
-    //     transform: 'translate3d(2em, 10px, 0px)',
-    //     opacity: 0.5,
-    //     scrollTrigger: {
-    //       trigger: name.current,
-    //       start: 'top bottom',
-    //       end: 'bottom top',
-    //       scrub: 1,
-    //       toggleActions: 'restart pause resume reverse'
-    //     }
-    //   });
-    //   gsap.to(links.current, 1, {
-    //     scale: 1.5,
-    //     transform: 'translate3d(-50px, 10px, 5px)',
-    //     scrollTrigger: {
-    //       trigger: links.current,
-    //       start: 'top bottom',
-    //       end: 'bottom top',
-    //       scrub: 1
-    //     }
-    //   });
-    // }
+    if (window.innerWidth > 770) {
+      gsap.from(component.current, 1, {
+        transform: 'translate3d(90px, 70px, 0px)',
+        opacity: 0.5,
+        scrollTrigger: {
+          trigger: component.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+          toggleActions: 'restart pause resume reverse'
+        }
+      });
+      gsap.from(name.current, 1, {
+        transform: 'translate3d(2em, 10px, 0px)',
+        opacity: 0.5,
+        scrollTrigger: {
+          trigger: name.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+          toggleActions: 'restart pause resume reverse'
+        }
+      });
+      gsap.to(links.current, 1, {
+        scale: 1.5,
+        transform: 'translate3d(-50px, 10px, 5px)',
+        scrollTrigger: {
+          trigger: links.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1
+        }
+      });
+    }
   });
 
   return (
@@ -169,8 +169,8 @@ const projects = ({project}) => {
               margin-top: 1em;
             }
             .gif {
+              margin-top: 1em;
               max-width: 100vw;
-              // width: auto;
               align-self: center;
             }
             .links {

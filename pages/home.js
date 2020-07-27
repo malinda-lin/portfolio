@@ -12,7 +12,7 @@ function Home() {
   const cover = useRef();
   const header = useRef();
   const projectHeader = useRef();
-  // const about = useRef();
+
   const myProjects = [tasteMakers, hero, aModernFruitStand];
 
   gsap.registerPlugin(ScrollTrigger);
@@ -36,38 +36,17 @@ function Home() {
       }
     });
 
-    // if (window.innerWidth > 770) {
-      gsap.from(projectHeader.current, 1.5, {
-        opacity: 0,
-        transform: 'translate3d(-200px, 0px, 0px)',
-        scrollTrigger: {
-          trigger: projectHeader.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1,
-          toggleActions: 'restart pause resume reset'
-        }
-      });
-    // } else {
-    //   gsap.fromTo(
-    //     projectHeader.current,
-    //     {
-    //       opacity: 0,
-    //       transform: 'translate3d(-200px, 0px, 0px)',
-    //       scrollTrigger: {
-    //         trigger: projectHeader.current,
-    //         start: 'top bottom',
-    //         end: 'bottom top',
-    //         scrub: 1,
-    //         toggleActions: 'restart pause resume reset'
-    //       }
-    //     },
-    //     {
-    //       opacity: 1,
-    //       transform: 'translate3d(700px, 0px, 0px)'
-    //     }
-    //   );
-    // }
+    gsap.from(projectHeader.current, 1.5, {
+      opacity: 0,
+      transform: 'translate3d(-200px, 0px, 0px)',
+      scrollTrigger: {
+        trigger: projectHeader.current,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1,
+        toggleActions: 'restart pause resume reset'
+      }
+    });
   });
 
   return (

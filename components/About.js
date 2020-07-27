@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import {useEffect, useState, useRef} from 'react';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
@@ -5,19 +6,21 @@ import AboutContent from './AboutContent';
 
 const about = () => {
   const content = useRef();
-  // const project = useRef();
   const headers = useRef();
   const resume = useRef();
+
   const [mobile, setMobile] = useState(false);
   const [showContent, setShowContent] = useState(null);
   const [initHeader, setInitHeader] = useState(true);
 
   gsap.registerPlugin(ScrollTrigger);
 
+  // fade content away
   const easeOutContent = () => {
-    gsap.fromTo(content.current, {opacity: 1, duration: 0.5}, {opacity: 0});
+    gsap.fromTo(content.current, {opacity: 1, duration: 0.25}, {opacity: 0});
   };
 
+  // fades in content w/ slight rotation
   const easeInContent = e => {
     let x = e.clientX;
     const y = e.clientY;
@@ -31,7 +34,7 @@ const about = () => {
         opacity: 0,
         rotation: 1,
         transformOrigin: '50% 50%',
-        // top and left refers to container
+        // position = fixed, top left for viewport
         top: y - 10,
         left: x - 90
       },
@@ -45,65 +48,78 @@ const about = () => {
     );
   };
 
+  // fades in content
   const easeInMobile = () => {
     gsap.fromTo(
       content.current,
       {
-        opacity: 0,
-        transformOrigin: '50% 50%'
+        opacity: 0
       },
       {
         opacity: 1,
-        transform: 'translate3d(15%, 20px, 0px)',
         duration: 1
       }
     );
   };
 
+  // fade content away and set null if !mobile
   const unSetContent = () => {
     easeOutContent();
-    setTimeout(() => {
-      setShowContent(null);
-    }, 500);
-  };
-
-  // fades out current content and sets new content
-  const setContent = e => {
-    e.persist();
-    // lower opacity so paragraph is more readable
     if (!mobile) {
-      gsap.to(headers.current, 1, {opacity: 0.1});
-    }
-    const target = e.target.value;
-    if (showContent !== target) {
-      easeOutContent();
       setTimeout(() => {
-        setShowContent(target);
-        if (mobile) {
-          easeInMobile();
-        } else {
-          easeInContent(e);
-        }
+        setShowContent(null);
       }, 500);
     }
   };
 
-  useEffect(() => {
-    gsap.defaults({overwrite: 'auto'});
+  // fades out current content and sets new content
+  const setContent = e => {
+    checkMobile();
+    e.persist();
+    // lower header opacity so paragraph is more readable
+    if (!mobile) {
+      gsap.to(headers.current, 1, {opacity: 0.1});
+    }
+
+    const target = e.target.value;
+    easeOutContent();
+    setTimeout(() => {
+      setShowContent(target);
+      if (mobile) {
+        easeInMobile();
+      } else {
+        easeInContent(e);
+      }
+    }, 500);
+  };
+
+  // sets mobile to true or false
+  const checkMobile = () => {
     if (window.innerWidth <= 770) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', checkMobile);
+    checkMobile();
+
+    gsap.defaults({overwrite: 'auto'});
+
+    if (mobile) {
+      // animate content if user opened on mobile size(only triggers once)
       if (showContent === null) {
-        setMobile(true);
         setShowContent('0');
         gsap.fromTo(
           content.current,
           {
-            opacity: 0,
-            transformOrigin: '50% 50%'
+            opacity: 0
           },
           {
             opacity: 1,
             duration: 1,
-            transform: 'translate3d(15%, 20px, 0px)',
             scrollTrigger: {
               trigger: content.current,
               start: 'top bottom',
@@ -113,28 +129,37 @@ const about = () => {
           }
         );
       }
+      //animate content !mobile to mobile
+      if (content.current.style.left || content.current.style.top) {
+        console.log('hello??')
+        content.current.style.left = null;
+        content.current.style.top = null;
+      }
     }
-    // only animates when component is refreshed
-    if (initHeader && window.innerWidth > 770) {
-      gsap.fromTo(
-        headers.current,
-        {opacity: 0.5, transform: 'translate3d(-50px, 120px, 0px)'},
-        {
-          duration: 1.5,
-          opacity: 1,
-          transform: 'translate3d(30px, 0px, 0px)',
-          scrollTrigger: {
-            trigger: headers.current,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1,
-            toggleActions: 'restart pause resume reset'
+
+    if (!mobile) {
+      // animate header
+      if (initHeader) {
+        gsap.fromTo(
+          headers.current,
+          {opacity: 0.5, transform: 'translate3d(-50px, 120px, 0px)'},
+          {
+            duration: 1.5,
+            opacity: 1,
+            transform: 'translate3d(30px, 0px, 0px)',
+            scrollTrigger: {
+              trigger: headers.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1,
+              toggleActions: 'restart pause resume reset'
+            }
           }
-        }
-      );
-      setInitHeader(false);
-    }
-    if (window.innerWidth > 770) {
+        );
+        setInitHeader(false);
+      }
+
+      // animate resume
       gsap.fromTo(
         resume.current,
         {
@@ -161,7 +186,11 @@ const about = () => {
   return (
     <div>
       <div id="container">
-        <div ref={headers} className="experience-buttons">
+        <div
+          ref={headers}
+          className="experience-buttons"
+          onMouseLeave={unSetContent}
+        >
           <div className="button-container">
             I am a
             <button
@@ -169,7 +198,6 @@ const about = () => {
               type="button"
               onClick={setContent}
               onMouseEnter={setContent}
-              onMouseLeave={unSetContent}
               value="0"
             >
               SOFTWARE ENGINEER,
@@ -182,7 +210,6 @@ const about = () => {
               type="button"
               onClick={setContent}
               onMouseEnter={setContent}
-              onMouseLeave={unSetContent}
               value="1"
             >
               FASHION DESIGNER,
@@ -195,7 +222,6 @@ const about = () => {
               type="button"
               onClick={setContent}
               onMouseEnter={setContent}
-              onMouseLeave={unSetContent}
               value="2"
             >
               NATURE LOVER,
@@ -241,10 +267,8 @@ const about = () => {
             align-self: center;
             display: flex;
             flex-direction: column;
-            // margin-top: 5em;
             align-items: flex-start;
           }
-
           .button-container {
             font-size: 6vw;
             color: gray;
@@ -253,7 +277,6 @@ const about = () => {
             font-family: 'EBGaramond', sans-serif;
             font-size: 7vw;
             margin: 0.5em;
-            padding: 0;
             background-color: transparent;
             white-space: nowrap;
             border: none;
@@ -262,7 +285,7 @@ const about = () => {
             transition-duration: 1s;
           }
           .content-button:hover {
-            opacity: 0;
+            opacity: 0.1;
           }
           #resume-container {
             display: flex;
