@@ -1,7 +1,6 @@
 import {useEffect, useState, useRef} from 'react';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
-import Layout from './Layout';
 import AboutContent from './AboutContent';
 
 const about = () => {
@@ -9,7 +8,7 @@ const about = () => {
   // const project = useRef();
   const headers = useRef();
   const resume = useRef();
-
+  const [mobile, setMobile] = useState(false);
   const [showContent, setShowContent] = useState(null);
   const [initHeader, setInitHeader] = useState(true);
 
@@ -46,40 +45,84 @@ const about = () => {
     );
   };
 
+  const easeInMobile = () => {
+    gsap.fromTo(
+      content.current,
+      {
+        opacity: 0,
+        transformOrigin: '50% 50%'
+      },
+      {
+        opacity: 1,
+        transform: 'translate3d(15%, 20px, 0px)',
+        duration: 1
+      }
+    );
+  };
+
   const unSetContent = () => {
     easeOutContent();
     setTimeout(() => {
       setShowContent(null);
     }, 500);
   };
+
   // fades out current content and sets new content
   const setContent = e => {
     e.persist();
-    console.log('enter');
     // lower opacity so paragraph is more readable
-    gsap.to(headers.current, 1, {opacity: 0.1});
-
+    if (!mobile) {
+      gsap.to(headers.current, 1, {opacity: 0.1});
+    }
     const target = e.target.value;
     if (showContent !== target) {
       easeOutContent();
       setTimeout(() => {
         setShowContent(target);
-        easeInContent(e);
+        if (mobile) {
+          easeInMobile();
+        } else {
+          easeInContent(e);
+        }
       }, 500);
     }
   };
 
   useEffect(() => {
     gsap.defaults({overwrite: 'auto'});
+    if (window.innerWidth <= 770) {
+      if (showContent === null) {
+        setMobile(true);
+        setShowContent('0');
+        gsap.fromTo(
+          content.current,
+          {
+            opacity: 0,
+            transformOrigin: '50% 50%'
+          },
+          {
+            opacity: 1,
+            duration: 1,
+            transform: 'translate3d(15%, 20px, 0px)',
+            scrollTrigger: {
+              trigger: content.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1
+            }
+          }
+        );
+      }
+    }
     // only animates when component is refreshed
-    if (initHeader) {
+    if (initHeader && window.innerWidth > 770) {
       gsap.fromTo(
         headers.current,
         {opacity: 0.5, transform: 'translate3d(-50px, 120px, 0px)'},
         {
           duration: 1.5,
           opacity: 1,
-          transform: 'translate3d(40px, 0px, 0px)',
+          transform: 'translate3d(30px, 0px, 0px)',
           scrollTrigger: {
             trigger: headers.current,
             start: 'top bottom',
@@ -91,30 +134,32 @@ const about = () => {
       );
       setInitHeader(false);
     }
-    gsap.fromTo(
-      resume.current,
-      {
-        opacity: 0.5,
-        scale: 1,
-        skewX: '20deg'
-      },
-      {
-        duration: 1,
-        opacity: 1,
-        scale: '1.3',
-        skewX: '-10deg',
-        scrollTrigger: {
-          trigger: resume.current,
-          start: 'top+=10 bottom',
-          end: 'bottom top',
-          scrub: 1
+    if (window.innerWidth > 770) {
+      gsap.fromTo(
+        resume.current,
+        {
+          opacity: 0.5,
+          scale: 1,
+          skewX: '20deg'
+        },
+        {
+          duration: 1,
+          opacity: 1,
+          scale: '1.3',
+          skewX: '-10deg',
+          scrollTrigger: {
+            trigger: resume.current,
+            start: 'top+=10 bottom',
+            end: 'bottom top',
+            scrub: 1
+          }
         }
-      }
-    );
+      );
+    }
   });
 
   return (
-    <Layout>
+    <div>
       <div id="container">
         <div ref={headers} className="experience-buttons">
           <div className="button-container">
@@ -197,7 +242,7 @@ const about = () => {
             align-self: center;
             display: flex;
             flex-direction: column;
-            margin-top: 5em;
+            // margin-top: 5em;
             align-items: flex-start;
             // border: 1px solid black;
           }
@@ -230,7 +275,7 @@ const about = () => {
             // border: 1px solid pink;
           }
           .resume {
-            margin: 0;
+            margin: 2em 0;
             padding: 0;
           }
           .resume-links {
@@ -243,18 +288,28 @@ const about = () => {
             white-space: nowrap;
             border-bottom: 1px dotted gray;
           }
-          // @media (max-width: 768px) {
-          //   #container {
-          //     color: pink;
-          //     transform: rotate(-90deg);
-          //     transform-origin: left top;
-          //     width: 100vh;
-          //     height: 100vw;
-          //   }
-          // }
+          @media only screen and (max-width: 770px) {
+            #container {
+              height: auto;
+            }
+            #resume-container {
+              margin: 0;
+            }
+            .resume-links {
+              font-size: large;
+            }
+            .content-button:hover {
+              opacity: 1;
+              border-bottom: 1px solid black;
+              font-weight: bold;
+            }
+            button {
+              font-size: 6vw;
+            }
+          }
         `}
       </style>
-    </Layout>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import {useRef, useEffect} from 'react';
+import {useRef, useEffect, useState} from 'react';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
 
@@ -13,12 +13,12 @@ function Home() {
   const header = useRef();
   const projectHeader = useRef();
   // const about = useRef();
-
   const myProjects = [tasteMakers, hero, aModernFruitStand];
 
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
+    gsap.defaults({overwrite: 'auto'});
     gsap.to(cover.current, 1.5, {
       opacity: 0
     });
@@ -36,17 +36,38 @@ function Home() {
       }
     });
 
-    gsap.from(projectHeader.current, 1.5, {
-      opacity: 0,
-      transform: 'translate3d(-200px, 0px, 0px)',
-      scrollTrigger: {
-        trigger: projectHeader.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1,
-        toggleActions: 'restart pause resume reset'
-      }
-    });
+    // if (window.innerWidth > 770) {
+      gsap.from(projectHeader.current, 1.5, {
+        opacity: 0,
+        transform: 'translate3d(-200px, 0px, 0px)',
+        scrollTrigger: {
+          trigger: projectHeader.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+          toggleActions: 'restart pause resume reset'
+        }
+      });
+    // } else {
+    //   gsap.fromTo(
+    //     projectHeader.current,
+    //     {
+    //       opacity: 0,
+    //       transform: 'translate3d(-200px, 0px, 0px)',
+    //       scrollTrigger: {
+    //         trigger: projectHeader.current,
+    //         start: 'top bottom',
+    //         end: 'bottom top',
+    //         scrub: 1,
+    //         toggleActions: 'restart pause resume reset'
+    //       }
+    //     },
+    //     {
+    //       opacity: 1,
+    //       transform: 'translate3d(700px, 0px, 0px)'
+    //     }
+    //   );
+    // }
   });
 
   return (
@@ -105,19 +126,13 @@ function Home() {
             //   font-family: 'EBGaramond', sans-serif;
           }
           .project {
-            background-color: pink;
-            height: 100vh;
+            height: auto;
+            margin: 3vh;
           }
-          // @media only screen and (max-width: 768px) {
-          //   #home h1 {
-          //     color: pink;
-          //     background-color: green;
-          //     // transform: rotate(-90deg);
-          //     // transform-origin: left top;
-          //     // width: 100vh;
-          //     // height: 100vw;
-          //   }
-          // }
+          @media only screen and (max-width: 770px) {
+            #home h1 {
+            }
+          }
         `}
       </style>
     </div>

@@ -68,15 +68,3 @@ function Root() {
 }
 
 export default Root;
-
-/* @media screen and (max-width: 768px) and (orientation: landscape) {
-  * {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-} */

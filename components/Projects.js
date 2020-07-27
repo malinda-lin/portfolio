@@ -13,38 +13,40 @@ const projects = ({project}) => {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    gsap.from(component.current, 1, {
-      transform: 'translate3d(100px, 70px, 0px)',
-      opacity: 0.5,
-      scrollTrigger: {
-        trigger: component.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1,
-        toggleActions: 'restart pause resume reverse'
-      }
-    });
-    gsap.from(name.current, 1, {
-      transform: 'translate3d(2em, 10px, 0px)',
-      opacity: 0.5,
-      scrollTrigger: {
-        trigger: name.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1,
-        toggleActions: 'restart pause resume reverse'
-      }
-    });
-    gsap.to(links.current, 1, {
-      scale: 1.5,
-      transform: 'translate3d(-50px, 10px, 5px)',
-      scrollTrigger: {
-        trigger: links.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1,
-      }
-    })
+    if (window.innerWidth > 770) {
+      gsap.from(component.current, 1, {
+        transform: 'translate3d(90px, 70px, 0px)',
+        opacity: 0.5,
+        scrollTrigger: {
+          trigger: component.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+          toggleActions: 'restart pause resume reverse'
+        }
+      });
+      gsap.from(name.current, 1, {
+        transform: 'translate3d(2em, 10px, 0px)',
+        opacity: 0.5,
+        scrollTrigger: {
+          trigger: name.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+          toggleActions: 'restart pause resume reverse'
+        }
+      });
+      gsap.to(links.current, 1, {
+        scale: 1.5,
+        transform: 'translate3d(-50px, 10px, 5px)',
+        scrollTrigger: {
+          trigger: links.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1
+        }
+      });
+    }
   });
 
   return (
@@ -99,20 +101,14 @@ const projects = ({project}) => {
             z-index: 9;
           }
           .project {
+            width: 100%;
             opacity: 1;
-            height: inherit;
-            width: inherit;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 4em 8em 4em 8em;
-            padding: 1em;
           }
           #right-side {
-            height: inherit;
-            min-width: 100%;
-            margin: 1em 0 1em 1em 1em;
-            padding-left: 1em;
+            width: 90%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -136,12 +132,9 @@ const projects = ({project}) => {
             font-size: small;
           }
           .gif {
-            max-height: 450px;
+            max-height: 550px;
             width: auto;
-            height: auto
-
-            margin-left: 1em;
-            margin-right: 1em;
+            height: auto;
             box-shadow: 2px 3px 4px black;
           }
           .links {
@@ -153,6 +146,32 @@ const projects = ({project}) => {
           .link {
             margin: 0.5em;
             width: 35px;
+          }
+          @media only screen and (max-width: 770px) {
+            h2 {
+              right: auto;
+              position: relative;
+              display: block;
+              font-size: x-large;
+              white-space: nowrap;
+              width: 100%;
+              text-align: center;
+            }
+            .project {
+              flex-direction: column;
+              margin: 0;
+              height: auto;
+              align-items: center;
+            }
+            .gif {
+              align-self: center;
+            }
+            .links {
+              align-self: center;
+              justify-content: center;
+              align-items: center;
+              display: flex;
+            }
           }
         `}
       </style>

@@ -56,6 +56,16 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
             font-family: 'EBGaramond', sans-serif;
             border-bottom: 1px dotted black;
           }
+          @media only screen and (max-width: 770px) {
+            #container {
+              margin-top: 1vh;
+              justify-content: flex-end;
+              align-self: center;
+              position: relative;
+              width: 85%;
+              font-size: xx-small;
+            }
+          }
         `}
       </style>
     </div>
