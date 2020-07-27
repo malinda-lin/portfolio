@@ -3,15 +3,17 @@ import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
 
 import styles from './index.module.css';
-import NavBar from '../components/Navbar';
 import About from '../components/About';
 import Projects from '../components/Projects';
+import MyLinks from '../components/MyLinks';
+import Email from '../components/Email';
 import {tasteMakers, hero, aModernFruitStand} from '../public/data/projectData';
 
 function Home() {
   const cover = useRef();
   const header = useRef();
   const projectHeader = useRef();
+  const footer = useRef();
 
   const myProjects = [tasteMakers, hero, aModernFruitStand];
 
@@ -47,12 +49,29 @@ function Home() {
         toggleActions: 'restart pause resume reset'
       }
     });
+
+    gsap.fromTo(
+      footer.current,
+      {
+        opacity: 0,
+        transform: 'translate3d(20px, 0px, 0px)'
+      },
+      {
+        opacity: 1,
+        transform: 'translate3d(0px, 0px, 0px)',
+        scrollTrigger: {
+          trigger: footer.current,
+          start: 'top bottom',
+          end: 'bottom 90%',
+          scrub: 1
+        }
+      }
+    );
   });
 
   return (
     <div className={styles.container}>
       <div ref={cover} className={styles.cover} />
-      {/* <NavBar /> */}
       <section id="home" className={styles.section}>
         <h1 ref={header}>Malinda Lin</h1>
       </section>
@@ -80,6 +99,13 @@ function Home() {
       <section className={(styles.section, 'project')}>
         <Projects project={myProjects[2]} />
       </section>
+      <footer ref={footer}>
+        <div>
+          I am happy to connect :
+          <Email />
+        </div>
+        <MyLinks />
+      </footer>
       <style jsx>
         {`
           #home {
@@ -107,8 +133,21 @@ function Home() {
             height: auto;
             margin: 3vh;
           }
+          footer {
+            border-top: 1px dotted black;
+            padding: 1em;
+            margin: 0;
+            margin-top: 3em;
+            align-self: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            font-size: xx-large;
+          }
           @media only screen and (max-width: 770px) {
-            #home h1 {
+            footer {
+              flex-direction: column;
             }
           }
         `}
