@@ -231,12 +231,11 @@ const about = () => {
             margin: auto;
             align-self: center;
             position: relative;
-            height: 100vh;
+            height: auto;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid black;
           }
           .experience-buttons {
             align-self: center;
@@ -244,7 +243,6 @@ const about = () => {
             flex-direction: column;
             // margin-top: 5em;
             align-items: flex-start;
-            // border: 1px solid black;
           }
 
           .button-container {
@@ -260,7 +258,6 @@ const about = () => {
             white-space: nowrap;
             border: none;
             border-bottom: 1px dotted black;
-            // border: 1px solid black;
             transition-property: opacity;
             transition-duration: 1s;
           }
@@ -271,8 +268,7 @@ const about = () => {
             display: flex;
             align-items: center;
             align-self: center;
-            margin: 5em 0;
-            // border: 1px solid pink;
+            margin: 3em 0;
           }
           .resume {
             margin: 2em 0;
@@ -290,7 +286,6 @@ const about = () => {
           }
           @media only screen and (max-width: 770px) {
             #container {
-              height: auto;
             }
             #resume-container {
               margin: 0;

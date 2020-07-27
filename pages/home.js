@@ -123,7 +123,6 @@ function Home() {
           }
           #projects-header div {
             align-self: flex-start;
-            //   font-family: 'EBGaramond', sans-serif;
           }
           .project {
             height: auto;

@@ -43,7 +43,6 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            // border: 1px solid black;
           }
           .experience-content {
             margin-top: 0.5em;

@@ -13,48 +13,48 @@ const projects = ({project}) => {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    if (window.innerWidth > 770) {
-      gsap.from(component.current, 1, {
-        transform: 'translate3d(90px, 70px, 0px)',
-        opacity: 0.5,
-        scrollTrigger: {
-          trigger: component.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1,
-          toggleActions: 'restart pause resume reverse'
-        }
-      });
-      gsap.from(name.current, 1, {
-        transform: 'translate3d(2em, 10px, 0px)',
-        opacity: 0.5,
-        scrollTrigger: {
-          trigger: name.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1,
-          toggleActions: 'restart pause resume reverse'
-        }
-      });
-      gsap.to(links.current, 1, {
-        scale: 1.5,
-        transform: 'translate3d(-50px, 10px, 5px)',
-        scrollTrigger: {
-          trigger: links.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1
-        }
-      });
-    }
+    // if (window.innerWidth > 770) {
+    //   gsap.from(component.current, 1, {
+    //     transform: 'translate3d(90px, 70px, 0px)',
+    //     opacity: 0.5,
+    //     scrollTrigger: {
+    //       trigger: component.current,
+    //       start: 'top bottom',
+    //       end: 'bottom top',
+    //       scrub: 1,
+    //       toggleActions: 'restart pause resume reverse'
+    //     }
+    //   });
+    //   gsap.from(name.current, 1, {
+    //     transform: 'translate3d(2em, 10px, 0px)',
+    //     opacity: 0.5,
+    //     scrollTrigger: {
+    //       trigger: name.current,
+    //       start: 'top bottom',
+    //       end: 'bottom top',
+    //       scrub: 1,
+    //       toggleActions: 'restart pause resume reverse'
+    //     }
+    //   });
+    //   gsap.to(links.current, 1, {
+    //     scale: 1.5,
+    //     transform: 'translate3d(-50px, 10px, 5px)',
+    //     scrollTrigger: {
+    //       trigger: links.current,
+    //       start: 'top bottom',
+    //       end: 'bottom top',
+    //       scrub: 1
+    //     }
+    //   });
+    // }
   });
 
   return (
     <div>
-      <h2 ref={name}>{project.name}</h2>
       <div ref={component} className="project">
         <img className="gif" src={project.gif} alt={project['gif-alt']} />
         <div id="right-side">
+          <h2 ref={name}>{project.name}</h2>
           <p id="description">{project.description}</p>
           <p id="tech">{project.technologies}</p>
 
@@ -94,25 +94,27 @@ const projects = ({project}) => {
       <style jsx>
         {`
           h2 {
-            position: absolute;
-            right: 3em;
-            font-size: 7vh;
+            font-size: 2.5vw;
             white-space: nowrap;
             z-index: 9;
+            text-align: center;
+            margin-bottom: 1em;
           }
           .project {
+            margin: 3em 0;
             width: 100%;
             opacity: 1;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            justify-content: space-around;
           }
           #right-side {
-            width: 90%;
+            min-width: 46%;
+            max-width: 600px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            //text-align: left;
+            margin: 0 1em;
           }
 
           p {
@@ -124,7 +126,6 @@ const projects = ({project}) => {
             word-wrap: break-word; /* IE */
           }
           #description {
-            margin-top: 1em;
             font-size: large;
           }
           #tech {
@@ -132,8 +133,9 @@ const projects = ({project}) => {
             font-size: small;
           }
           .gif {
-            max-height: 550px;
-            width: auto;
+            margin-top: 3em;
+            max-height: 600px;
+            max-width: 50%;
             height: auto;
             box-shadow: 2px 3px 4px black;
           }
@@ -150,12 +152,12 @@ const projects = ({project}) => {
           @media only screen and (max-width: 770px) {
             h2 {
               right: auto;
-              position: relative;
               display: block;
               font-size: x-large;
               white-space: nowrap;
               width: 100%;
               text-align: center;
+              margin-bottom: 0.5em;
             }
             .project {
               flex-direction: column;
@@ -163,7 +165,12 @@ const projects = ({project}) => {
               height: auto;
               align-items: center;
             }
+            #right-side {
+              margin-top: 1em;
+            }
             .gif {
+              max-width: 100vw;
+              // width: auto;
               align-self: center;
             }
             .links {
