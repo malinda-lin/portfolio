@@ -15,8 +15,8 @@ const projects = ({project}) => {
   useEffect(() => {
     if (window.innerWidth > 770) {
       gsap.from(component.current, 1, {
-        transform: 'translate3d(90px, 70px, 0px)',
         opacity: 0.5,
+        transform: 'translate3d(0px, 120px, 0px)',
         scrollTrigger: {
           trigger: component.current,
           start: 'top bottom',
@@ -26,7 +26,6 @@ const projects = ({project}) => {
         }
       });
       gsap.from(name.current, 1, {
-        transform: 'translate3d(2em, 10px, 0px)',
         opacity: 0.5,
         scrollTrigger: {
           trigger: name.current,
@@ -38,7 +37,6 @@ const projects = ({project}) => {
       });
       gsap.to(links.current, 1, {
         scale: 1.5,
-        transform: 'translate3d(-50px, 10px, 5px)',
         scrollTrigger: {
           trigger: links.current,
           start: 'top bottom',
@@ -94,14 +92,14 @@ const projects = ({project}) => {
       <style jsx>
         {`
           h2 {
-            font-size: 2.5vw;
+            font-size: 3.5vw;
             white-space: nowrap;
             z-index: 9;
             text-align: center;
             margin-bottom: 1em;
           }
           .project {
-            margin: 3em 0;
+            margin: 3vw 0;
             width: 100%;
             opacity: 1;
             display: flex;
@@ -114,7 +112,8 @@ const projects = ({project}) => {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            margin: 0 1em;
+            margin: 0;
+            margin-left: 2em;
           }
 
           p {
@@ -133,7 +132,7 @@ const projects = ({project}) => {
             font-size: small;
           }
           .gif {
-            margin-top: 3em;
+            margin-top: 4em;
             max-height: 600px;
             max-width: 50%;
             height: auto;
@@ -167,6 +166,7 @@ const projects = ({project}) => {
             }
             #right-side {
               margin-top: 1em;
+              margin-left: 0;
             }
             .gif {
               margin-top: 1em;

@@ -53,11 +53,13 @@ const about = () => {
     gsap.fromTo(
       content.current,
       {
-        opacity: 0
+        opacity: 0,
+        transform: 'translate3d(0px, 20px, 0px)'
       },
       {
         opacity: 1,
-        duration: 1
+        duration: 1,
+        transform: 'translate3d(0px, 0px, 0px)'
       }
     );
   };
@@ -115,23 +117,24 @@ const about = () => {
         gsap.fromTo(
           content.current,
           {
-            opacity: 0
+            opacity: 0,
+            transform: 'translate3d(0px, 70px, 0px)'
           },
           {
             opacity: 1,
             duration: 1,
+            transform: 'translate3d(0px, -15px, 0px)',
             scrollTrigger: {
               trigger: content.current,
               start: 'top bottom',
-              end: 'bottom top',
+              end: 'bottom+=200 top',
               scrub: 1
             }
           }
         );
       }
-      //animate content !mobile to mobile
+      // animate content !mobile to mobile
       if (content.current.style.left || content.current.style.top) {
-        console.log('hello??')
         content.current.style.left = null;
         content.current.style.top = null;
       }
@@ -142,11 +145,11 @@ const about = () => {
       if (initHeader) {
         gsap.fromTo(
           headers.current,
-          {opacity: 0.5, transform: 'translate3d(-50px, 120px, 0px)'},
+          {opacity: 0.5, transform: 'translate3d(0px, 70px, 0px)'},
           {
             duration: 1.5,
             opacity: 1,
-            transform: 'translate3d(30px, 0px, 0px)',
+            transform: 'translate3d(0px, -10px, 0px)',
             scrollTrigger: {
               trigger: headers.current,
               start: 'top bottom',
@@ -164,14 +167,12 @@ const about = () => {
         resume.current,
         {
           opacity: 0.5,
-          scale: 1,
-          skewX: '20deg'
+          scale: 1
         },
         {
           duration: 1,
           opacity: 1,
-          scale: '1.3',
-          skewX: '-10deg',
+          scale: '1.2',
           scrollTrigger: {
             trigger: resume.current,
             start: 'top+=10 bottom',
@@ -270,12 +271,12 @@ const about = () => {
             align-items: flex-start;
           }
           .button-container {
-            font-size: 6vw;
+            font-size: 5vw;
             color: gray;
           }
           button {
             font-family: 'EBGaramond', sans-serif;
-            font-size: 7vw;
+            font-size: 6vw;
             margin: 0.5em;
             background-color: transparent;
             white-space: nowrap;
@@ -291,7 +292,7 @@ const about = () => {
             display: flex;
             align-items: center;
             align-self: center;
-            margin: 3em 0;
+            margin: 3vw 0;
           }
           .resume {
             margin: 2em 0;

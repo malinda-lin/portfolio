@@ -1,4 +1,4 @@
-import {useRef, useEffect, useState} from 'react';
+import {useRef, useEffect} from 'react';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
 
@@ -38,23 +38,30 @@ function Home() {
       }
     });
 
-    gsap.from(projectHeader.current, 1.5, {
-      opacity: 0,
-      transform: 'translate3d(-200px, 0px, 0px)',
-      scrollTrigger: {
-        trigger: projectHeader.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1,
-        toggleActions: 'restart pause resume reset'
+    gsap.fromTo(
+      projectHeader.current,
+      {
+        opacity: 0,
+        transform: 'translate3d(0px, 40px, 0px)'
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        transform: 'translate3d(0px, -15px, 0px)',
+        scrollTrigger: {
+          trigger: projectHeader.current,
+          scrub: 1,
+          start: 'top+=200 bottom',
+          end: 'bottom top'
+        }
       }
-    });
+    );
 
     gsap.fromTo(
       footer.current,
       {
         opacity: 0,
-        transform: 'translate3d(20px, 0px, 0px)'
+        transform: 'translate3d(0px, 20px, 0px)'
       },
       {
         opacity: 1,
@@ -100,11 +107,16 @@ function Home() {
         <Projects project={myProjects[2]} />
       </section>
       <footer ref={footer}>
-        <div>
-          I am happy to connect :
-          <Email />
+        <div id="closing">
+          Thank you for visiting my website. This was a lot of fun to put
+          together and the techstack I used includes GSAP, React.js, and
+          Next.js. If you have any questions, don&apos;t hesitiate to contact
+          me. I&apos;d love to help or just connect!
         </div>
-        <MyLinks />
+        <div id="links">
+          <Email />
+          <MyLinks />
+        </div>
       </footer>
       <style jsx>
         {`
@@ -143,11 +155,25 @@ function Home() {
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
-            font-size: xx-large;
+            font-size: large;
+          }
+          #closing {
+            margin: 1vw;
+            font-family: 'EBGaramond', sans-serif;
+            max-width: 60%;
+          }
+          #links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
           @media only screen and (max-width: 770px) {
             footer {
               flex-direction: column;
+            }
+            #closing {
+              margin-bottom: 3vw;
+              max-width: none;
             }
           }
         `}

@@ -1,5 +1,6 @@
 .container {
-  width: 100%;
+  margin: 0 6vw;
+  width: auto;
   height: 100%;
 }
 .cover {
@@ -17,4 +18,9 @@
   justify-content: center;
   text-align: center;
   width: 100%;
+}
+@media only screen and (max-width: 770px) {
+  .container {
+    margin: 0 1vw;
+  }
 }
