@@ -103,7 +103,7 @@ const projects = ({project}) => {
             width: 100%;
             opacity: 1;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: space-around;
           }
           #right-side {
@@ -132,7 +132,7 @@ const projects = ({project}) => {
             font-size: 1.5vw;
           }
           .gif {
-            margin-top: 4em;
+            // margin-top: 4vw;
             max-height: 600px;
             max-width: 50%;
             height: auto;
@@ -172,7 +172,6 @@ const projects = ({project}) => {
               margin-left: 0;
             }
             #tech {
-
               font-size: small;
             }
             .gif {
