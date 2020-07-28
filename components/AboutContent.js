@@ -1,57 +1,83 @@
 /* eslint-disable react/prop-types */
-import {forwardRef} from 'react';
+import {forwardRef, useState} from 'react';
 
 import {techStack, programming, design, nature} from '../public/data/aboutData';
 
 const AboutContent = forwardRef(({selectedContent}, content) => {
-  const selectContent = () => {
+  // h is the css top value
+  let h = '10%';
+
+  let resultContent = null;
+  const setH = () => {
     switch (selectedContent) {
       case '0': {
-        return programming;
+        h = '14%';
+        resultContent = programming;
+        break;
       }
       case '1': {
-        return design;
+        h = '38%';
+        resultContent = design;
+        break;
       }
       case '2': {
-        return nature;
+        h = '63%';
+        resultContent = nature;
+        break;
       }
-      default:
-        return null;
+      default: {
+        resultContent = null;
+        break;
+      }
     }
   };
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center'}}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+      }}
+    >
+      {setH()}
       <div id="container" ref={content}>
         {selectedContent === '0' ? (
-          <div className="experience-content">
+          <div id="tech">
             <b className="font">Technologies I use often</b>
             {': '}
             {techStack}
           </div>
         ) : null}
-        <div className="experience-content">{selectContent()}</div>
+        <div className="experience-content">{resultContent}</div>
       </div>
       <style jsx>
         {`
           #container {
             opacity: 0;
             z-index: 8;
-            width: 50%;
-            position: fixed;
-            top: ${Number(1)};
-            left: ${Number(1)};
+            width: 80%;
+            position: absolute;
+            margin: auto;
+            top: ${h};
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
             pointer-events: none;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
           }
           .experience-content {
-            margin-top: 0.5em;
+            font-family: 'EBGaramond', sans-serif;
+            text-align: center;
+            font-size: 2vw;
+          }
+          #tech {
+            margin-bottom: 0.5vw;
             align-self: center;
             font-family: 'EBGaramond', sans-serif;
-            text-align: left;
-            font-size: 2vw;
+            text-align: center;
+            font-size: 1.5vw;
           }
           .font {
             font-family: 'EBGaramond', sans-serif;

@@ -22,23 +22,17 @@ const about = () => {
 
   // fades in content w/ slight rotation
   const easeInContent = e => {
-
     gsap.fromTo(
       content.current,
       {
-        opacity: 0,
-        rotation: 1,
-        transformOrigin: '50% 50%',
+        opacity: 0
+
         // position = fixed, top left for viewport
-        top: 1,
-        left: 1
       },
       {
         opacity: 1,
         rotation: 0,
-        duration: 1,
-        top: 1,
-        left: 1
+        duration: 1
       }
     );
   };
@@ -67,10 +61,12 @@ const about = () => {
         setShowContent(null);
       }, 500);
     }
+    document.activeElement.blur();
   };
 
   // fades out current content and sets new content
   const setContent = e => {
+    e.target.focus();
     checkMobile();
     e.persist();
     // lower header opacity so paragraph is more readable
@@ -187,43 +183,39 @@ const about = () => {
           className="experience-buttons"
           onMouseLeave={unSetContent}
         >
-          <div className="button-container">
-            I am a
-            <button
-              className="content-button"
-              type="button"
-              onClick={setContent}
-              onMouseEnter={setContent}
-              value="0"
-            >
-              SOFTWARE ENGINEER,
-            </button>
-          </div>
-          <div className="button-container">
-            a
-            <button
-              className="content-button"
-              type="button"
-              onClick={setContent}
-              onMouseEnter={setContent}
-              value="1"
-            >
-              FASHION DESIGNER,
-            </button>
-          </div>
-          <div className="button-container">
-            a
-            <button
-              className="content-button"
-              type="button"
-              onClick={setContent}
-              onMouseEnter={setContent}
-              value="2"
-            >
-              NATURE LOVER,
-            </button>
-            and more . . .
-          </div>
+          <button
+            className="content-button"
+            type="button"
+            onClick={setContent}
+            onMouseEnter={setContent}
+            value="0"
+          >
+            <span className="words">I am a </span>
+            SOFTWARE ENGINEER,
+          </button>
+
+          <button
+            className="content-button"
+            type="button"
+            onClick={setContent}
+            onMouseEnter={setContent}
+            value="1"
+          >
+            <span className="words"> a </span>
+            FASHION DESIGNER,
+          </button>
+
+          <button
+            className="content-button"
+            type="button"
+            onClick={setContent}
+            onMouseEnter={setContent}
+            value="2"
+          >
+            <span className="words"> a </span>
+            NATURE LOVER,
+            <span className="words"> and more . . .</span>
+          </button>
         </div>
 
         <AboutContent selectedContent={showContent} ref={content} />
@@ -258,6 +250,7 @@ const about = () => {
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            border: 1px solid red;
           }
           .experience-buttons {
             align-self: center;
@@ -265,7 +258,7 @@ const about = () => {
             flex-direction: column;
             align-items: flex-start;
           }
-          .button-container {
+          .words {
             font-size: 5vw;
             color: gray;
           }
@@ -280,8 +273,10 @@ const about = () => {
             transition-property: opacity;
             transition-duration: 1s;
           }
-          .content-button:hover {
-            opacity: 0.1;
+          .content-button:hover,
+          .content-button:active,
+          .content-button:focus {
+            opacity: 0;
           }
           #resume-container {
             display: flex;
