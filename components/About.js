@@ -26,12 +26,9 @@ const about = () => {
       content.current,
       {
         opacity: 0
-
-        // position = fixed, top left for viewport
       },
       {
         opacity: 1,
-        rotation: 0,
         duration: 1
       }
     );
@@ -124,14 +121,41 @@ const about = () => {
           }
         );
       }
-      // animate content !mobile to mobile
-      if (content.current.style.left || content.current.style.top) {
-        content.current.style.left = null;
-        content.current.style.top = null;
+      if (showContent) {
+        if (content.current.style.left || content.current.style.top) {
+          content.current.style.left = 0;
+          content.current.style.top = 0;
+          content.current.style.transform = 'translateX(0%) translateY(0%)';
+        }
       }
     }
 
     if (!mobile) {
+      // how to transition from mobile size with content to !mobile size and disable content
+      if (showContent) {
+        let h;
+        switch (showContent) {
+          case '0': {
+            h = '12%';
+            break;
+          }
+          case '1': {
+            h = '38%';
+            break;
+          }
+          case '2': {
+            h = '63%';
+            break;
+          }
+          default: {
+            break;
+          }
+        }
+        content.current.style.left = '50%';
+        content.current.style.top = h;
+        content.current.style.transform = 'translateX(-50%) translateY(-50%)';
+      }
+
       // animate header
       if (initHeader) {
         gsap.fromTo(
@@ -190,8 +214,8 @@ const about = () => {
             onMouseEnter={setContent}
             value="0"
           >
-            <span className="words">I am a </span>
-            SOFTWARE ENGINEER,
+            {`I am a `}
+            <span className="button-text">SOFTWARE ENGINEER,</span>
           </button>
 
           <button
@@ -201,8 +225,8 @@ const about = () => {
             onMouseEnter={setContent}
             value="1"
           >
-            <span className="words"> a </span>
-            FASHION DESIGNER,
+            {` a `}
+            <span className="button-text">FASHION DESIGNER,</span>
           </button>
 
           <button
@@ -212,9 +236,9 @@ const about = () => {
             onMouseEnter={setContent}
             value="2"
           >
-            <span className="words"> a </span>
-            NATURE LOVER,
-            <span className="words"> and more . . .</span>
+            {` a `}
+            <span className="button-text">NATURE LOVER,</span>
+            {` and more . . .`}
           </button>
         </div>
 
@@ -257,22 +281,25 @@ const about = () => {
             flex-direction: column;
             align-items: flex-start;
           }
-          .words {
-            font-size: 5vw;
-            color: gray;
-          }
-          button {
-            font-family: 'EBGaramond', sans-serif;
-            font-size: 6vw;
-            margin: 0.5em;
+          .content-button {
+            margin: 2vw;
             background-color: transparent;
-            white-space: nowrap;
             border: none;
-            border-bottom: 1px dotted black;
             transition-property: opacity;
             transition-duration: 1s;
+            font-size: 6vw;
           }
-          .content-button:hover,
+          .button-text {
+            font-family: 'EBGaramond', sans-serif;
+            font-size: 6vw;
+            white-space: nowrap;
+            border-bottom: 1px dotted black;
+            pointer-events: none;
+          }
+          .content-button:hover {
+            opacity: 0;
+          }
+
           .content-button:active,
           .content-button:focus {
             opacity: 0;

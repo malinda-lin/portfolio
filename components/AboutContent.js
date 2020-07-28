@@ -33,13 +33,7 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center'
-      }}
-    >
+    <div>
       {setH()}
       <div id="container" ref={content}>
         {selectedContent === '0' ? (
@@ -85,15 +79,20 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
           }
           @media only screen and (max-width: 770px) {
             #container {
-              margin-top: 2vh;
-              justify-content: center;
-              align-content: center;
-              align-self: center;
+              opacity: 1;
+              width: 90vw;
               position: relative;
-              width: 85%;
+              margin-top: 2vh;
+              left: 0;
+              justify-content: center;
+            }
+            #tech {
+              font-size: small;
+              text-align: left;
             }
             .experience-content {
               font-size: large;
+              text-align: left;
             }
           }
         `}
