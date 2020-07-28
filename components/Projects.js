@@ -114,7 +114,7 @@ const projects = ({project}) => {
             flex-direction: column;
             justify-content: space-between;
             margin: 0;
-            margin-left: 2em;
+            margin-left: 4vw;
           }
 
           p {
