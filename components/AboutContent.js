@@ -82,7 +82,7 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
               opacity: 1;
               width: 90vw;
               position: relative;
-              margin-top: 2vh;
+              margin-top: 3vh;
               left: 0;
               justify-content: center;
             }
