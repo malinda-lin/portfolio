@@ -1,6 +1,6 @@
 .container {
-  margin: 0 6vw;
-  width: auto;
+  margin: auto;
+  width: 80%;
   height: 100%;
 }
 .cover {
@@ -21,6 +21,7 @@
 }
 @media only screen and (max-width: 770px) {
   .container {
-    margin: 0 1vw;
+    margin: auto;
+    width: 95%;
   }
 }
