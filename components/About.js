@@ -250,7 +250,6 @@ const about = () => {
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid red;
           }
           .experience-buttons {
             align-self: center;

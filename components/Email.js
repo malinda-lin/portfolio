@@ -54,7 +54,7 @@ const Email = () => {
             position: absolute;
             top: 60%;
             transform: translateY(-50%);
-            font-size: small;
+            font-size: 1vw;
             left: 95%;
             text-align: center;
             color: gray;
@@ -64,6 +64,9 @@ const Email = () => {
           @media only screen and (max-width: 770px) {
             input {
               font-size: medium;
+            }
+            #confirmation {
+              font-size: small;
             }
           }
         `}
