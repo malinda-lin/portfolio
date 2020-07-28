@@ -49,7 +49,7 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
             align-self: center;
             font-family: 'EBGaramond', sans-serif;
             text-align: left;
-            font-size: large;
+            font-size: 2vw;
           }
           .font {
             font-family: 'EBGaramond', sans-serif;
@@ -63,7 +63,9 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
               align-self: center;
               position: relative;
               width: 85%;
-              font-size: xx-small;
+            }
+            .experience-content {
+              font-size: large;
             }
           }
         `}
