@@ -39,6 +39,8 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
             z-index: 8;
             width: 50%;
             position: fixed;
+            top: ${Number(1)};
+            left: ${Number(1)};
             pointer-events: none;
             display: flex;
             flex-direction: column;

@@ -22,12 +22,7 @@ const about = () => {
 
   // fades in content w/ slight rotation
   const easeInContent = e => {
-    let x = e.clientX;
-    const y = e.clientY;
-    // keeps the content inside the window, prevents overflow
-    if (content.current && x > window.innerWidth / 2) {
-      x = window.innerWidth - content.current.offsetWidth - 100;
-    }
+
     gsap.fromTo(
       content.current,
       {
@@ -35,15 +30,15 @@ const about = () => {
         rotation: 1,
         transformOrigin: '50% 50%',
         // position = fixed, top left for viewport
-        top: y - 10,
-        left: x - 90
+        top: 1,
+        left: 1
       },
       {
         opacity: 1,
         rotation: 0,
         duration: 1,
-        top: y,
-        left: x - 100
+        top: 1,
+        left: 1
       }
     );
   };

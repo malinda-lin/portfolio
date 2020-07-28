@@ -319,6 +319,7 @@ const resume = () => {
           }
           #tech {
             text-align: center;
+            font-size: 1.5vw;
           }
           .item {
             margin 0 4vw;
@@ -334,17 +335,18 @@ const resume = () => {
             margin: 1vw 0;
             display: flex;
             justify-content: space-between;
+            font-size: 1.5vw;
           }
           .contentDescription {
             margin: 2vw 0;
-            font-size: 1.7vw;
+            font-size: 1.5vw;
           }
           .contentList {
             list-style-type: circle;
           }
           .contentLI {
             margin: 0.5vw 3vw;
-            font-size: 1.7vw;
+            font-size: 1.5vw;
           }
           .date {
             white-space: nowrap;
@@ -354,6 +356,7 @@ const resume = () => {
           .education {
             display: flex;
             justify-content: space-between;
+            font-size: 1.5vw;
           }
           .plusSign {
               display: none;
@@ -380,6 +383,7 @@ const resume = () => {
             }
             .categorySubtitle {
               flex-direction: column;
+              font-size: small;
             }
             .contentDescription {
               font-size: small;
@@ -396,6 +400,7 @@ const resume = () => {
             }
             .education .date {
               align-self: flex-end;
+              font-size: small;
             }
             .date {
               font-size: small;
