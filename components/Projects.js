@@ -132,7 +132,7 @@ const projects = ({project}) => {
             font-size: 1.5vw;
           }
           .gif {
-            max-height: 700px;
+            max-height: 'inherit';
             max-width: 50%;
             height: auto;
             box-shadow: 2px 3px 4px black;
