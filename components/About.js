@@ -241,7 +241,7 @@ const about = () => {
           </a>
           |
           <a
-            href="/resume/Malinda_Lin_Resume_2020.pdf"
+            href="/resume"
             target="_blank"
             rel="noopener noreferrer"
             className="resume"

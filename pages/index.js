@@ -21,18 +21,16 @@ function Root() {
       'url(fonts/DancingScript-VariableFont_wght.ttf)'
     );
 
-    const Ledger = new FontFace('Ledger', 'url(fonts/Ledger-Regular.ttf)');
+    const Hind = new FontFace('Hind', 'url(fonts/Hind-Regular.ttf)');
 
     const EBGaramond = new FontFace(
       'EBGaramond',
       'url(fonts/EBGaramond-VariableFont_wght.ttf)'
     );
 
-    await Ledger.load();
     await EBGaramond.load();
     await DancingScript.load();
 
-    await document.fonts.add(Ledger);
     await document.fonts.add(EBGaramond);
     await document.fonts.add(DancingScript);
 

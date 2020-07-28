@@ -1,4 +1,4 @@
-const MyLinks = () => {
+const MyLinks = ({showIG}) => {
   return (
     <div style={{display: 'flex'}}>
       <a
@@ -25,14 +25,16 @@ const MyLinks = () => {
       >
         <img src="/images/medium-logo.png" alt="Medium link" />
       </a>
-      <a
-        className="link"
-        href="https://www.instagram.com/malinda.design/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img src="/images/instagram-logo.png" alt="Instagram link" />
-      </a>
+      {showIG ? (
+        <a
+          className="link"
+          href="https://www.instagram.com/malinda.design/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/images/instagram-logo.png" alt="Instagram link" />
+        </a>
+      ) : null}
       <style jsx>
         {`
           .link {
