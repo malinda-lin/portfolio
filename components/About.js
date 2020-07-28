@@ -335,7 +335,6 @@ const about = () => {
             }
             .content-button:hover {
               opacity: 1;
-              border-bottom: 1px solid black;
               font-weight: bold;
             }
             button {
