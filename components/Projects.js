@@ -108,7 +108,8 @@ const projects = ({project}) => {
           }
           #right-side {
             min-width: 46%;
-            max-width: 600px;
+            // max-width: 600px;
+            max-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -132,7 +133,7 @@ const projects = ({project}) => {
             font-size: 1.5vw;
           }
           .gif {
-            max-height: 'inherit';
+            max-height: 100vh;
             max-width: 50%;
             height: auto;
             box-shadow: 2px 3px 4px black;

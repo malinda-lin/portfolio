@@ -297,7 +297,7 @@ const resume = () => {
             align-self: center;
             width: 70%;
             margin: auto;
-            padding-bottom: 5vw;
+            padding: 5vw 0;
           }
           #heading {
             display: flex;
