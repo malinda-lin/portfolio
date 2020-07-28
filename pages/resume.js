@@ -297,6 +297,7 @@ const resume = () => {
             align-self: center;
             width: 70%;
             margin: auto;
+            padding-bottom: 5vw;
           }
           #heading {
             display: flex;
@@ -336,12 +337,14 @@ const resume = () => {
           }
           .contentDescription {
             margin: 2vw 0;
+            font-size: 1.7vw;
           }
           .contentList {
             list-style-type: circle;
           }
           .contentLI {
             margin: 0.5vw 3vw;
+            font-size: 1.7vw;
           }
           .date {
             white-space: nowrap;
