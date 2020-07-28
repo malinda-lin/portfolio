@@ -5,7 +5,7 @@ import {techStack, programming, design, nature} from '../public/data/aboutData';
 
 const AboutContent = forwardRef(({selectedContent}, content) => {
   // h is the css top value
-  let h = '10%';
+  let h = '12%';
 
   let resultContent = null;
   const setH = () => {
