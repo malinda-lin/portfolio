@@ -125,11 +125,11 @@ const projects = ({project}) => {
             word-wrap: break-word; /* IE */
           }
           #description {
-            font-size: large;
+            font-size: 2vw;
           }
           #tech {
             margin: 1.5em 0 0.8em 0;
-            font-size: small;
+            font-size: 1.5vw;
           }
           .gif {
             margin-top: 4em;
@@ -164,9 +164,16 @@ const projects = ({project}) => {
               height: auto;
               align-items: center;
             }
+            #description {
+              font-size: large;
+            }
             #right-side {
               margin-top: 1em;
               margin-left: 0;
+            }
+            #tech {
+
+              font-size: small;
             }
             .gif {
               margin-top: 1em;

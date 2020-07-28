@@ -4,7 +4,6 @@ import MyLinks from '../components/MyLinks';
 const resume = () => {
   const [load, setLoad] = useState(false);
   const loadFont = async () => {
-    const Hind = new FontFace('Hind', 'url(fonts/Hind-Regular.ttf)');
     const HindBold = new FontFace('HindBold', 'url(fonts/Hind-Bold.ttf)');
 
     const EBGaramond = new FontFace(
@@ -12,11 +11,9 @@ const resume = () => {
       'url(fonts/EBGaramond-VariableFont_wght.ttf)'
     );
 
-    await Hind.load();
     await HindBold.load();
     await EBGaramond.load();
 
-    await document.fonts.add(Hind);
     await document.fonts.add(HindBold);
     await document.fonts.add(EBGaramond);
 
@@ -266,7 +263,6 @@ const resume = () => {
       <style jsx>
         {`
           * {
-            // font-family: 'Hind';
             font-family: 'EBGaramond';
           }
           a {
@@ -295,7 +291,7 @@ const resume = () => {
           }
           #email {
             color: black;
-            font-size: medium;
+            font-size: 2vw;
           }
           #container {
             align-self: center;
@@ -315,7 +311,7 @@ const resume = () => {
           }
           #hLine2 {
             color: black;
-            font-size: small;
+            font-size: 2vw;
           }
           #hLine3 {
             align-self: center;
@@ -330,7 +326,7 @@ const resume = () => {
           .category {
             margin: 2vw 0;
             margin-top: 3vw;
-            font-size: large;
+            font-size: 3vw;
             font-weight: bold;
           }
           .categorySubtitle {
@@ -338,12 +334,10 @@ const resume = () => {
             display: flex;
             justify-content: space-between;
           }
-          
           .contentDescription {
             margin: 2vw 0;
           }
           .contentList {
-            // list-style-type: none;
             list-style-type: circle;
           }
           .contentLI {
@@ -351,9 +345,8 @@ const resume = () => {
           }
           .date {
             white-space: nowrap;
-            font-size: small;
+            font-size: 1vw;
             color: #5c5c5c;
-            
           }
           .education {
             display: flex;
@@ -363,12 +356,24 @@ const resume = () => {
               display: none;
           }
           @media only screen and (max-width: 770px) {
+
             #container {
               width: 90%;
-              
+            }
+            #name {
+              font-size: xx-large;
+            }
+            #email {
+              font-size: medium;
+            }
+            #hLine2 {
+              font-size: small;
             }
             #tech {
               font-size: small;
+            }
+            .category {
+              font-size: large;
             }
             .categorySubtitle {
               flex-direction: column;
@@ -388,6 +393,9 @@ const resume = () => {
             }
             .education .date {
               align-self: flex-end;
+            }
+            .date {
+              font-size: small;
             }
           }
         `}

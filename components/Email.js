@@ -35,7 +35,7 @@ const Email = () => {
             border: none;
             text-align: center;
             font-family: 'EBGaramond', sans-serif;
-            font-size: large;
+            font-size: 2.5vw;
             background-color: transparent;
           }
           input:active,
@@ -60,6 +60,11 @@ const Email = () => {
             color: gray;
             font-family: hevetica;
             font-style: italic;
+          }
+          @media only screen and (max-width: 770px) {
+            input {
+              font-size: medium;
+            }
           }
         `}
       </style>

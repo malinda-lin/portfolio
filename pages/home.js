@@ -155,7 +155,7 @@ function Home() {
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
-            font-size: large;
+            font-size: 2vw;
           }
           #closing {
             margin: 1vw;
@@ -170,6 +170,7 @@ function Home() {
           @media only screen and (max-width: 770px) {
             footer {
               flex-direction: column;
+              font-size: large;
             }
             #closing {
               margin-bottom: 3vw;
