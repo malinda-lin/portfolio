@@ -11,7 +11,7 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
   const setH = () => {
     switch (selectedContent) {
       case '0': {
-        h = '14%';
+        h = '12%';
         resultContent = programming;
         break;
       }
