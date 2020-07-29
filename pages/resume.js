@@ -397,6 +397,7 @@ const resume = () => {
             .education {
               display: flex;
               flex-direction: column-reverse;
+              font-size: small;
             }
             .education .date {
               align-self: flex-end;

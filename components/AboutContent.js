@@ -87,7 +87,7 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
               justify-content: center;
             }
             #tech {
-              font-size: small;
+              font-size: medium;
               text-align: left;
             }
             .experience-content {
