@@ -115,7 +115,6 @@ const about = () => {
               start: 'top+=100 bottom',
               end: '+=100',
               scrub: 1,
-              markers: true,
               scrollTrigger: 'reset reset reset reset'
             }
           }
@@ -334,6 +333,7 @@ const about = () => {
               text-align: left;
               align-self: flex-end;
               padding-right: 1em;
+              padding-bottom: 1em;
             }
             .resume {
               margin: 1.5em 0;
@@ -346,7 +346,7 @@ const about = () => {
             }
             .resume-links {
               margin 0;
-              font-size: small;
+              font-size: large;
             }
             .content-button:hover {
               opacity: 1;
