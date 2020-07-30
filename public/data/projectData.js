@@ -15,7 +15,7 @@ My contributions included wire-framing, schema design, full stack engineering, a
 };
 export const hero = {
   name: 'Hero',
-  gif: '/images/hero.gif',
+  gif: '/images/hero.webm',
   'gif-alt': 'gif of Hero',
   github: 'https://github.com/malinda-lin/Hero',
   youtube: null,
