@@ -62,6 +62,7 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
             justify-content: flex-start;
           }
           .experience-content {
+            align-self: center;
             font-family: 'EBGaramond', sans-serif;
             text-align: center;
             font-size: 2vw;
@@ -83,16 +84,23 @@ const AboutContent = forwardRef(({selectedContent}, content) => {
               width: 90vw;
               position: relative;
               margin-top: 3vh;
+              top: 0;
               left: 0;
+              transform: none;
               justify-content: center;
             }
             #tech {
+              order: 2;
+              margin-bottom: none;
+              margin-top: 5vw;
               font-size: medium;
               text-align: left;
+              max-width: 80vw;
             }
             .experience-content {
               font-size: large;
               text-align: left;
+              max-width: 80vw;
             }
           }
         `}

@@ -50,6 +50,7 @@ const projects = ({project}) => {
   return (
     <div>
       <div ref={component} className="project">
+        <div id="project-name">{project.name}</div>
         <img className="gif" src={project.gif} alt={project['gif-alt']} />
         <div id="right-side">
           <h2 ref={name}>{project.name}</h2>
@@ -91,6 +92,9 @@ const projects = ({project}) => {
 
       <style jsx>
         {`
+          #project-name {
+            display: none;
+          }
           h2 {
             font-size: 3.5vw;
             white-space: nowrap;
@@ -148,20 +152,22 @@ const projects = ({project}) => {
             width: 35px;
           }
           @media only screen and (max-width: 770px) {
-            h2 {
-              right: auto;
+            #project-name {
               display: block;
               font-size: x-large;
               white-space: nowrap;
               width: 100%;
               text-align: center;
-              margin-bottom: 0.5em;
+            }
+            h2 {
+              display: none;
             }
             .project {
               flex-direction: column;
               margin: 0;
               height: auto;
               align-items: center;
+              padding-bottom: 2em;
             }
             #description {
               font-size: large;
@@ -175,7 +181,7 @@ const projects = ({project}) => {
             }
             .gif {
               margin-top: 1em;
-              max-width: 100vw;
+              max-width: 90vw;
               align-self: center;
             }
             .links {

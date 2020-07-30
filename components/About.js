@@ -105,18 +105,18 @@ const about = () => {
         gsap.fromTo(
           content.current,
           {
-            opacity: 0,
-            transform: 'translate3d(0px, 70px, 0px)'
+            opacity: 0
           },
           {
             opacity: 1,
             duration: 1,
-            transform: 'translate3d(0px, -15px, 0px)',
             scrollTrigger: {
               trigger: content.current,
-              start: 'top bottom',
-              end: 'bottom+=200 top',
-              scrub: 1
+              start: 'top+=100 bottom',
+              end: '+=100',
+              scrub: 1,
+              markers: true,
+              scrollTrigger: 'reset reset reset reset'
             }
           }
         );
@@ -174,28 +174,26 @@ const about = () => {
             }
           }
         );
+        // animate resume
+        gsap.fromTo(
+          resume.current,
+          {
+            opacity: 1
+          },
+          {
+            duration: 1,
+            opacity: 0.7,
+            scrollTrigger: {
+              trigger: resume.current,
+              start: 'top bottom',
+              end: 'bottom+=50 top',
+              scrub: 1,
+              toggleActions: 'reset reset reset reset'
+            }
+          }
+        );
         setInitHeader(false);
       }
-
-      // animate resume
-      gsap.fromTo(
-        resume.current,
-        {
-          opacity: 0.5,
-          scale: 1
-        },
-        {
-          duration: 1,
-          opacity: 1,
-          scale: '1.2',
-          scrollTrigger: {
-            trigger: resume.current,
-            start: 'top+=10 bottom',
-            end: 'bottom top',
-            scrub: 1
-          }
-        }
-      );
     }
   });
 
@@ -245,12 +243,15 @@ const about = () => {
         <AboutContent selectedContent={showContent} ref={content} />
 
         <div ref={resume} id="resume-container">
-          <a href="/resume/Malinda_Lin_Resume_2020.pdf" className="resume">
+          <a
+            href="/resume/Malinda_Lin_Resume_2020.pdf"
+            className="resume download"
+          >
             <button className="resume-links" type="button">
               Download
             </button>
           </a>
-          |
+          <span id="link-divider">|</span>
           <a
             href="/resume"
             target="_blank"
@@ -274,6 +275,7 @@ const about = () => {
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            padding-bottom: 10%;
           }
           .experience-buttons {
             align-self: center;
@@ -299,7 +301,6 @@ const about = () => {
           .content-button:hover {
             opacity: 0;
           }
-
           .content-button:active,
           .content-button:focus {
             opacity: 0;
@@ -308,10 +309,10 @@ const about = () => {
             display: flex;
             align-items: center;
             align-self: center;
-            margin: 3vw 0;
+            margin: 1vw 0;
           }
           .resume {
-            margin: 2em 0;
+            margin: 0;
             padding: 0;
           }
           .resume-links {
@@ -326,12 +327,26 @@ const about = () => {
           }
           @media only screen and (max-width: 770px) {
             #container {
+              min-height: 90vh;
             }
             #resume-container {
-              margin: 0;
+              display: block;
+              text-align: left;
+              align-self: flex-end;
+              padding-right: 1em;
+            }
+            .resume {
+              margin: 1.5em 0;
+            }
+            .download {
+              display: none;
+            }
+            #link-divider {
+              display: none;
             }
             .resume-links {
-              font-size: large;
+              margin 0;
+              font-size: small;
             }
             .content-button:hover {
               opacity: 1;

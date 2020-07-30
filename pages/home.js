@@ -12,6 +12,7 @@ import {tasteMakers, hero, aModernFruitStand} from '../public/data/projectData';
 function Home() {
   const cover = useRef();
   const header = useRef();
+  const about = useRef();
   const projectHeader = useRef();
   const footer = useRef();
 
@@ -38,20 +39,32 @@ function Home() {
       }
     });
 
+    gsap.to(about.current, {
+      transform: 'translate3d(0px 100px 0px)',
+      opacity: 0,
+      scrollTrigger: {
+        trigger: about.current,
+        pin: about.current,
+        scrub: true,
+        pinSpacing: false,
+        end: 'bottom center'
+      }
+    });
+
     gsap.fromTo(
       projectHeader.current,
       {
         opacity: 0,
-        transform: 'translate3d(0px, 40px, 0px)'
+        transform: 'translate3d(0px, 50px, 0px)'
       },
       {
         opacity: 1,
-        duration: 1,
-        transform: 'translate3d(0px, -15px, 0px)',
+        duration: 2,
+        transform: 'translate3d(0px, 0px, 0px)',
         scrollTrigger: {
           trigger: projectHeader.current,
           scrub: 1,
-          start: 'top+=200 bottom',
+          start: 'top bottom',
           end: 'bottom top'
         }
       }
@@ -83,7 +96,7 @@ function Home() {
         <h1 ref={header}>Malinda Lin</h1>
       </section>
 
-      <section id="about" className={styles.section}>
+      <section ref={about} id="about" className={styles.section}>
         <About />
       </section>
 
@@ -92,7 +105,8 @@ function Home() {
         id="projects-header"
         className={styles.section}
       >
-        <div>Here are my projects:</div>
+        <div>Projects</div>
+        <div />
       </section>
 
       <section className={(styles.section, 'project')}>
@@ -106,6 +120,11 @@ function Home() {
       <section className={(styles.section, 'project')}>
         <Projects project={myProjects[2]} />
       </section>
+
+      <section id="footer-divider" className={styles.section}>
+        <div />
+      </section>
+
       <footer ref={footer}>
         <div id="closing">
           Thank you for visiting my website. This was a lot of fun to put
@@ -131,25 +150,32 @@ function Home() {
             align-self: center;
             text-align: center;
           }
-          #about {
-          }
           #projects-header {
-            margin-left: 1em;
-            font-family: 'EBGaramond', sans-serif;
             font-size: 7vw;
           }
-          #projects-header div {
+          #projects-header div:nth-child(1) {
+            font-family: 'EBGaramond', sans-serif;
             align-self: flex-start;
+          }
+          #projects-header div:nth-child(2) {
+            border-bottom: 1px dotted black;
+            height: 1vw;
+            width: 100vw;
           }
           .project {
             height: auto;
             margin: 3vh;
           }
+          #footer-divider div:nth-child(1) {
+            border-bottom: 1px dotted black;
+            height: 2em;
+            width: 100vw;
+          }
+
           footer {
-            border-top: 1px dotted black;
             padding: 1em;
             margin: 0;
-            margin-top: 3em;
+            margin-top: 1em;
             align-self: center;
             display: flex;
             flex-direction: row;
@@ -168,13 +194,30 @@ function Home() {
             align-items: center;
           }
           @media only screen and (max-width: 770px) {
+            #about {
+              min-height: 100vh;
+            }
             footer {
               flex-direction: column;
               font-size: medium;
+              margin-top: 1em;
             }
             #closing {
               margin-bottom: 3vw;
               max-width: none;
+            }
+            #projects-header {
+              text-align: center;
+              margin-left: 0;
+              margin-top: 1em;
+            }
+            #projects-header div {
+              font-family: 'EBGaramond', sans-serif;
+            }
+            #footer-divider div:nth-child(1) {
+              border-bottom: 1px dotted black;
+              height: 0;
+              width: 100vw;
             }
           }
         `}
