@@ -120,6 +120,9 @@ const about = () => {
           }
         );
       }
+      headers.current.children[0].style.opacity = 1;
+      headers.current.children[1].style.opacity = 1;
+      headers.current.children[2].style.opacity = 1;
       if (showContent) {
         if (content.current.style.left || content.current.style.top) {
           content.current.style.left = 0;
@@ -136,20 +139,30 @@ const about = () => {
         switch (showContent) {
           case '0': {
             h = '12%';
+            headers.current.children[0].style.opacity = 0;
+            headers.current.children[1].style.opacity = 1;
+            headers.current.children[2].style.opacity = 1;
             break;
           }
           case '1': {
             h = '38%';
+            headers.current.children[0].style.opacity = 1;
+            headers.current.children[1].style.opacity = 0;
+            headers.current.children[2].style.opacity = 1;
             break;
           }
           case '2': {
             h = '63%';
+            headers.current.children[0].style.opacity = 1;
+            headers.current.children[1].style.opacity = 1;
+            headers.current.children[2].style.opacity = 0;
             break;
           }
           default: {
             break;
           }
         }
+
         content.current.style.left = '50%';
         content.current.style.top = h;
         content.current.style.transform = 'translateX(-50%) translateY(-50%)';
