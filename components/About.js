@@ -98,6 +98,8 @@ const about = () => {
 
     gsap.defaults({overwrite: 'auto'});
 
+    // arr of button keys
+    const arr = Object.keys(headers.current.children);
     if (mobile) {
       // animate content if user opened on mobile size(only triggers once)
       if (showContent === null) {
@@ -120,10 +122,11 @@ const about = () => {
           }
         );
       }
-      headers.current.children[0].style.opacity = 1;
-      headers.current.children[1].style.opacity = 1;
-      headers.current.children[2].style.opacity = 1;
       if (showContent) {
+        // makes sure all buttons are visible in mobile
+        arr.forEach(i => {
+          headers.current.children[i].style.opacity = 1;
+        });
         if (content.current.style.left || content.current.style.top) {
           content.current.style.left = 0;
           content.current.style.top = 0;
@@ -139,33 +142,36 @@ const about = () => {
         switch (showContent) {
           case '0': {
             h = '12%';
-            headers.current.children[0].style.opacity = 0;
-            headers.current.children[1].style.opacity = 1;
-            headers.current.children[2].style.opacity = 1;
             break;
           }
           case '1': {
             h = '38%';
-            headers.current.children[0].style.opacity = 1;
-            headers.current.children[1].style.opacity = 0;
-            headers.current.children[2].style.opacity = 1;
             break;
           }
           case '2': {
             h = '63%';
-            headers.current.children[0].style.opacity = 1;
-            headers.current.children[1].style.opacity = 1;
-            headers.current.children[2].style.opacity = 0;
             break;
           }
           default: {
             break;
           }
         }
+        // change opacity for buttons so content doesn't look overlapped
+        arr.forEach(i => {
+          if (i !== showContent) {
+            headers.current.children[i].style.opacity = 1;
+          } else {
+            headers.current.children[i].style.opacity = 0;
+          }
+        });
 
         content.current.style.left = '50%';
         content.current.style.top = h;
         content.current.style.transform = 'translateX(-50%) translateY(-50%)';
+      } else {
+        arr.forEach(i => {
+          headers.current.children[i].style.opacity = 1;
+        });
       }
 
       // animate header
