@@ -47,7 +47,8 @@ function Home() {
         pin: about.current,
         scrub: true,
         pinSpacing: false,
-        end: 'bottom center'
+        start: 'top+=100 top',
+        end: 'bottom-=100 center'
       }
     });
 
