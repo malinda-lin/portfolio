@@ -22,7 +22,7 @@ export const hero = {
   deployed: 'https://damp-dawn-63084.herokuapp.com/',
   description: `Hero is the product of a 4 day hackaton. On one local machine, two people can run around a grassy map, hide in different places, and chat real-time with online friends.
 
-I learned to pick up two new libraries and compile its documentation in just a couple days. I also started using Tiled App immediately because I'm used to using different design softwares like Photoshop, Illustrator, and Rhino 3D.`,
+I learned to pick up two new libraries and compiled its documentation in just a couple days. I also started using Tiled App immediately because I'm used to using different design softwares like Photoshop, Illustrator, and Rhino 3D.`,
   technologies: 'Phaser 3, Socket.io, Tiled'
 };
 export const aModernFruitStand = {
@@ -35,7 +35,7 @@ export const aModernFruitStand = {
   deployed: 'https://modern-fruit-stand.herokuapp.com/',
   description: `As a team of 4, we created an e-commerce website that sells fruits. We were highly collaborative and had daily stand up.
   
-I took initiative in the product slice and we pair programmed the shopping cart component. Some features included viewing a single product, the capability to add or remove a desired amount to or from the shopping cart, and checking out the cart which turns it into a past order.`,
+I took initiative in the product slice and we pair-programmed the shopping cart component. Some features included viewing a single product, the capability to add or remove a desired amount to or from the shopping cart, and checking out the cart which turns it into a past order.`,
   technologies:
     'React, Redux, Node, Express, Sequelize, PostgreSQL, Passport, Webpack'
 };
