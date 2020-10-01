@@ -48,7 +48,7 @@ function Root() {
   return (
     <div>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="alternate icon" href="/favicon.ico" />
         <meta name="description" content="Malinda Lin's Portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Malinda Lin | Software Engineer</title>
