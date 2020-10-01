@@ -64,9 +64,9 @@ const resume = () => {
                 <span className="">&nbsp;| </span>
                 <span className="italic">FRONT-END ENGINEER </span>
                 <span className="">| </span>
-                <span className="">PT REMOTE</span>
+                <span className="">CONTRACT REMOTE</span>
               </div>
-              <span className="date">JUN 2020 - PRESENT</span>
+              <span className="date">JUN 2020 - AUG 2020</span>
             </div>
 
             <p className="contentDescription">
