@@ -48,6 +48,9 @@ function Root() {
   return (
     <div>
       <Head>
+        <meta property="og:title" content="Malinda Lin" />
+        <meta property="og:image" content="/thumbnail.png" />
+        <meta property="og:url" content="https://malinda.dev/" />
         <link rel="alternate icon" href="/favicon.ico" />
         <meta name="description" content="Malinda Lin's Portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

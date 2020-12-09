@@ -15,6 +15,8 @@ function Home() {
   const about = useRef();
   const projectHeader = useRef();
   const footer = useRef();
+  const butterfly = useRef();
+  const flower = useRef();
 
   const myProjects = [tasteMakers, hero, aModernFruitStand];
 
@@ -25,7 +27,77 @@ function Home() {
     gsap.to(cover.current, 1.5, {
       opacity: 0
     });
+    /* under construction */
+    /*
+    const headerPositions = header.current.getBoundingClientRect();
+    const butterflyStartX = (butterfly.current.width + 5).toString();
+    const butterflyStartY = (butterfly.current.height + 5).toString();
+    const butterflyLandingX = headerPositions.left.toString();
+    const butterflyLandingY = headerPositions.top.toString();
+    const butterflyEndX = window.innerWidth + butterfly.current.width + 5;
+    const butterflyEndY = window.innerHeight + butterfly.current.height + 5;
+    // TODO: make scroll for butterfly animation without affecting cover ref or header?
+    // TODO: make animation for flower
 
+    gsap.fromTo(
+      flower.current,
+      {
+        transform: `translate3d(-${butterflyLandingX}px, ${butterflyLandingY}px, 0px)`
+      },
+      {
+        opacity: 1,
+        duration: 2,
+        delay: 0.5
+      }
+    );
+
+    // ------------animation timeline starts-------------
+    const animation = gsap.timeline();
+
+    animation
+      .fromTo(
+        butterfly.current,
+        {
+          transform: `translate3d(${butterflyStartX}px, ${butterflyStartY}px, 0px)`
+        },
+        {
+          transform: `translate3d(-${butterflyLandingX}px, ${butterflyLandingY}px, 0px)`,
+          rotation: 5,
+          transformOrigin: 'left bottom',
+          opacity: 1,
+          ease: 'slow'
+        }
+      )
+
+      .to(butterfly.current, {
+        x: -butterflyEndX,
+        y: -butterflyEndY,
+        opacity: 0,
+        ease: 'slow',
+      })
+
+      .to(flower.current, {
+        opacity: 0,
+        ease: 'back',
+      });
+
+    ScrollTrigger.create({
+      trigger: 'cover.current',
+      animation,
+      // Uncomment these to see how they affect the ScrollTrigger
+      markers: true,
+      start: 'top top',
+      end: 'bottom center-=100',
+      // toggleClass: "active",
+      // pin: true,
+      scrub: 1
+      // onUpdate: self => {
+      //   console.log("progress:", self.progress.toFixed(3), "direction:", self.direction, "velocity", self.getVelocity());
+      // }
+    });
+    */
+    // ------------animation timeline ends-------------
+    /* under construction */
     gsap.to(header.current, {
       transform: 'translate3d(0px, 100px, 0px)',
       rotation: 5,
@@ -94,6 +166,20 @@ function Home() {
     <div className={styles.container}>
       <div ref={cover} className={styles.cover} />
       <section id="home" className={styles.section}>
+        {/* <img
+          ref={butterfly}
+          className={butterfly}
+          src="/animations/butterfly animation.gif"
+          alt="fluttering butterfly"
+          width="100"
+        />
+        <img
+          ref={flower}
+          className={flower}
+          src="/animations/flower animation.gif"
+          alt="opening flower"
+          width="100"
+        /> */}
         <h1 ref={header}>Malinda Lin</h1>
       </section>
 
@@ -194,6 +280,20 @@ function Home() {
             flex-direction: column;
             align-items: center;
           }
+          // .butterfly {
+          //   opacity: 0;
+          //   position: absolute;
+          //   top: 0px;
+          //   right: 0px;
+          //   z-index: 13;
+          // }
+          // .flower {
+          //   opacity: 0;
+          //   position: absolute;
+          //   top: 0px;
+          //   right: 0px;
+          //   z-index: 12;
+          // }
           @media only screen and (max-width: 770px) {
             #about {
               min-height: 100vh;
